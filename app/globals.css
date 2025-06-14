@@ -1,0 +1,570 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+
+    --radius: 0.5rem;
+
+    /* Custom SVG colors for light theme */
+    --grid-pattern-light: #2563EB;
+    --circuit-color-light: rgba(0, 50, 150, 0.8);
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.5% 48%;
+
+    /* Custom SVG colors for dark theme */
+    --grid-pattern-dark: #4F46E5;
+    --circuit-color-dark: rgba(100, 150, 255, 0.8);
+  }
+}
+
+@layer utilities {
+  .stroke-grid-pattern {
+    stroke: var(--grid-pattern-light);
+  }
+  .dark .stroke-grid-pattern {
+    stroke: var(--grid-pattern-dark);
+  }
+
+  .stroke-circuit-pattern {
+    stroke: var(--circuit-color-light);
+  }
+  .dark .stroke-circuit-pattern {
+    stroke: var(--circuit-color-dark);
+  }
+
+  .fill-circuit-pattern {
+    fill: var(--circuit-color-light);
+  }
+  .dark .fill-circuit-pattern {
+    fill: var(--circuit-color-dark);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom selection color */
+  ::selection {
+    @apply bg-blue-600/30 text-blue-900 dark:text-blue-100;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-800;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400 dark:bg-gray-500;
+  }
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Blob animations */
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Digital Border Flow Animation */
+@keyframes digitalBorderFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-digital-border-flow {
+  animation: digitalBorderFlow 4s linear infinite;
+  background-size: 200% 200%;
+}
+
+/* Data grid animation */
+@keyframes dataGrid {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+.animate-data-grid {
+  animation: dataGrid 20s linear infinite;
+  background-size: 200% 200%;
+}
+
+/* Neural network pulse animation */
+@keyframes neuralPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(59, 130, 246, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+  }
+}
+
+.animate-neural-pulse {
+  animation: neuralPulse 2s infinite;
+}
+
+/* Code typing animation */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.animate-typing {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3s steps(40, end);
+}
+
+/* Data flow animation */
+@keyframes dataFlow {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-data-flow {
+  animation: dataFlow 10s linear infinite;
+}
+
+/* Circuit pulse animation */
+@keyframes circuit-pulse {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+}
+
+.circuit-node {
+  animation: circuit-pulse 2s infinite ease-in-out;
+  transform-origin: center center;
+}
+
+.circuit-path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 0;
+  animation: circuit-dash 15s linear infinite;
+}
+
+@keyframes circuit-dash {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -1000;
+  }
+}
+
+/* Floating animation */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Data point animation */
+.data-point {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.data-point:nth-child(2n) {
+  animation-delay: 0.2s;
+}
+
+.data-point:nth-child(3n) {
+  animation-delay: 0.4s;
+}
+
+/* Binary rain animation */
+@keyframes binary-rain {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.binary-rain-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.binary-rain {
+  position: absolute;
+  font-family: monospace;
+  color: #0f0; /* Green color for binary code */
+  font-size: 1.5rem;
+  animation: binary-rain 5s linear infinite;
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* Animated Conic Border */
+@keyframes rotateBorder {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-rotate-border {
+  animation: rotateBorder 5s linear infinite;
+}
+
+/* Tech pattern animation (similar to grid, but for general tech background) */
+@keyframes tech-pattern-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 200px 200px;
+  }
+}
+
+.tech-pattern {
+  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.15) 1px, transparent 0);
+  background-size: 20px 20px;
+  animation: tech-pattern-move 60s linear infinite;
+}
+
+/* Data bar animation */
+@keyframes data-bar {
+  0% {
+    transform: scaleY(0);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(0);
+  }
+}
+
+.data-bar {
+  transform-origin: bottom;
+  animation: data-bar 1.5s ease-in-out infinite;
+}
+
+.data-bar:nth-child(2n) {
+  animation-delay: 0.3s;
+}
+
+.data-bar:nth-child(3n) {
+  animation-delay: 0.6s;
+}
+
+.data-bar:nth-child(4n) {
+  animation-delay: 0.9s;
+}
+
+/* Node connection animation */
+@keyframes node-connection {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 1000;
+  }
+}
+
+.node-connection {
+  stroke-dasharray: 1000;
+  animation: node-connection 20s linear infinite;
+  stroke-linecap: round;
+}
+
+/* Cursor data point float animation */
+@keyframes cursor-data-point-float {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  33% {
+    transform: translateY(-5px) translateX(5px);
+  }
+  66% {
+    transform: translateY(5px) translateX(-5px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+
+.cursor-data-point {
+  animation: cursor-data-point-float 4s ease-in-out infinite;
+}
+
+.cursor-data-point:nth-child(2n) {
+  animation-delay: 0.5s;
+}
+
+.cursor-data-point:nth-child(3n) {
+  animation-delay: 1s;
+}
+
+/* Markdown styling */
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  @apply font-bold text-gray-900 dark:text-white mb-4;
+}
+
+.prose h1 {
+  @apply text-3xl md:text-4xl;
+}
+
+.prose h2 {
+  @apply text-2xl md:text-3xl;
+}
+
+.prose h3 {
+  @apply text-xl md:text-2xl;
+}
+
+.prose p {
+  @apply leading-relaxed mb-4 text-gray-700 dark:text-gray-300;
+}
+
+.prose ul,
+.prose ol {
+  @apply list-disc list-inside mb-4 pl-5 text-gray-700 dark:text-gray-300;
+}
+
+.prose li {
+  @apply mb-2;
+}
+
+.prose a {
+  @apply text-blue-600 hover:underline dark:text-blue-400;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-blue-500 pl-4 py-2 italic text-gray-600 dark:text-gray-400 mb-4;
+}
+
+.prose code {
+  @apply bg-gray-100 dark:bg-gray-700 text-red-600 dark:text-red-400 px-1 py-0.5 rounded;
+}
+
+.prose pre {
+  @apply bg-gray-800 text-white p-4 rounded-lg overflow-x-auto mb-4;
+}
+
+/* Animated Scan Line Border */
+@keyframes rotateScanLine {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-rotate-scan-line {
+  animation: rotateScanLine 8s linear infinite;
+}
+
+/* Circuit Flow Border Animation */
+@keyframes circuitFlowBorder {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+.animate-circuit-flow-border {
+  animation: circuitFlowBorder 5s linear infinite;
+  background-size: 300% 300%; /* Make the gradient larger to show movement */
+}
+
+/* Certification Scroll Animation */
+@keyframes scrollCertifications {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%); /* Scroll exactly half of the duplicated content */
+  }
+}
+
+.animate-scroll-certifications {
+  animation: scrollCertifications 40s linear infinite;
+}
+
+/* Tech Pattern Move Animation */
+@keyframes tech-pattern-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 200px 200px;
+  }
+}
+
+.tech-pattern {
+  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.15) 1px, transparent 0);
+  background-size: 20px 20px;
+  animation: tech-pattern-move 60s linear infinite;
+}

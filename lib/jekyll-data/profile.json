@@ -1,0 +1,89 @@
+{
+  "basic-info": {
+    "name": "Dr. Vu Huy",
+    "title": "AI Researcher & Specialist",
+    "email": "contact@vuhuy.ai",
+    "phone": "+1 (555) 123-4567",
+    "location": "San Francisco, CA",
+    "website": "https://vuhuy.ai",
+    "profileImage": "/placeholder.svg?height=600&width=600&text=Profile+Image",
+    "bio": "I'm a passionate AI researcher and engineer with over 6 years of experience in machine learning, data science, and artificial intelligence. I specialize in developing cutting-edge AI solutions that solve real-world problems.",
+    "socialLinks": [
+      {
+        "platform": "github",
+        "url": "https://github.com/vuhuyai"
+      },
+      {
+        "platform": "linkedin",
+        "url": "https://linkedin.com/in/vuhuyai"
+      },
+      {
+        "platform": "twitter",
+        "url": "https://twitter.com/vuhuyai"
+      }
+    ]
+  },
+  "about": {
+    "mission": "At VUHUY AI, we're dedicated to pushing the boundaries of artificial intelligence through innovative research and practical applications. Our mission is to develop AI solutions that address real-world challenges and make advanced technology accessible to everyone.",
+    "values": [
+      {
+        "name": "Innovation",
+        "description": "Constantly exploring new ideas and approaches to solve complex problems."
+      },
+      {
+        "name": "Collaboration",
+        "description": "Working together with researchers, developers, and organizations to achieve greater impact."
+      },
+      {
+        "name": "Accessibility",
+        "description": "Making AI technologies and knowledge available to diverse communities worldwide."
+      }
+    ],
+    "team": [
+      {
+        "name": "Dr. Vu Huy",
+        "role": "Founder & Lead Researcher",
+        "image": "/placeholder.svg?height=300&width=300&text=VH",
+        "bio": "Expert in NLP and machine learning with over 10 years of research experience."
+      },
+      {
+        "name": "Dr. Jane Smith",
+        "role": "Senior AI Researcher",
+        "image": "/placeholder.svg?height=300&width=300&text=JS",
+        "bio": "Specializes in deep learning architectures and their applications in computer vision."
+      },
+      {
+        "name": "Dr. Michael Johnson",
+        "role": "Research Scientist",
+        "image": "/placeholder.svg?height=300&width=300&text=MJ",
+        "bio": "Focuses on reinforcement learning and multi-agent systems."
+      }
+    ]
+  },
+  "contact": {
+    "email": "contact@vuhuy.ai",
+    "phone": "+1 (555) 123-4567",
+    "address": "123 AI Street, San Francisco, CA 94105",
+    "mapLocation": {
+      "lat": 37.7749,
+      "lng": -122.4194,
+      "zoom": 13
+    },
+    "socialLinks": [
+      {
+        "platform": "github",
+        "url": "https://github.com/vuhuyai"
+      },
+      {
+        "platform": "linkedin",
+        "url": "https://linkedin.com/in/vuhuyai"
+      },
+      {
+        "platform": "twitter",
+        "url": "https://twitter.com/vuhuyai"
+      }
+    ],
+    "formEndpoint": "https://formspree.io/f/your-form-id",
+    "availabilityHours": "Monday - Friday: 9:00 AM - 5:00 PM (PST)"
+  }
+}

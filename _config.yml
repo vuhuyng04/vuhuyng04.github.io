@@ -1,0 +1,58 @@
+# Site settings
+title: MyNLP Blog
+email: your-email@example.com
+description: >-
+  Personal blog about NLP research and AI technologies.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: yourusername
+github_username:  yourusername
+
+# Build settings
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /blog/:title/
+  certifications:
+    output: true
+    permalink: /certifications/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Your Name"
+  - scope:
+      path: ""
+      type: "certifications"
+    values:
+      layout: "certification"
+      
+# Exclude from processing
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/
+  - README.md
+  - package.json
+  - package-lock.json
+  - next.config.mjs
+  - tsconfig.json
+  - components/
+  - app/
+  - public/
+  - lib/
