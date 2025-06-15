@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef } from "react"
+import { useRef, useState, useEffect } from "react"
 import Image from "next/image"
 import { motion, useInView } from "framer-motion"
 import { Button } from "@/components/ui/button"
@@ -19,6 +19,48 @@ export default function ResearchClientPage({ researchInterests, publications, co
   const isInView = useInView(ref, { once: true, amount: 0.1 })
   const { theme } = useTheme()
   const isDark = theme === "dark"
+
+  // Typing effect state
+  const [text, setText] = useState("")
+  const fullText = "Research & Innovation"
+  const [showCursor, setShowCursor] = useState(true)
+  const [isComplete, setIsComplete] = useState(false)
+  const [isRestarting, setIsRestarting] = useState(false)
+
+  // Typing effect
+  useEffect(() => {
+    let timeout: NodeJS.Timeout
+
+    if (isRestarting) {
+      setText("")
+      setIsRestarting(false)
+      return
+    }
+
+    if (text.length < fullText.length) {
+      timeout = setTimeout(() => {
+        setText(fullText.slice(0, text.length + 1))
+        if (text.length + 1 === fullText.length) {
+          setIsComplete(true)
+          // Schedule restart after completion
+          setTimeout(() => {
+            setIsRestarting(true)
+            setIsComplete(false)
+          }, 3000)
+        }
+      }, 150)
+    }
+
+    return () => clearTimeout(timeout)
+  }, [text, isRestarting])
+
+  // Cursor blinking effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setShowCursor((prev) => !prev)
+    }, 500)
+    return () => clearInterval(interval)
+  }, [])
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -42,53 +84,111 @@ export default function ResearchClientPage({ researchInterests, publications, co
   }
 
   return (
-    <div className="flex-grow pt-24 pb-16 bg-gray-50 dark:bg-gray-800">
-      {/* AI-themed background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-full opacity-5">
-          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="grid-research" width="40" height="40" patternUnits="userSpaceOnUse">
-                <path d="M 40 0 L 0 0 0 40" fill="none" stroke={isDark ? "#4F46E5" : "#2563EB"} strokeWidth="1" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#grid-research)" />
+    <div className="flex-grow">
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-blue-900 to-indigo-900 text-white py-24">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute inset-0 bg-[url('/placeholder.svg?height=100&width=100&text=+')] opacity-5"></div>
+          <div className="tech-pattern absolute inset-0 opacity-10"></div>
+          <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-blue-500 rounded-full filter blur-3xl opacity-10 animate-blob"></div>
+          <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-indigo-500 rounded-full filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
+        </div>
+
+        {/* AI-themed background elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 left-0 w-full h-full opacity-5">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="grid-research" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke={isDark ? "#4F46E5" : "#2563EB"} strokeWidth="1" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#grid-research)" />
+            </svg>
+          </div>
+        </div>
+
+        {/* Digital circuit pattern */}
+        <div className="absolute inset-0 z-0 opacity-5">
+          <svg width="100%" height="100%">
+            <pattern
+              id="circuit-pattern-research"
+              x="0"
+              y="0"
+              width="200"
+              height="200"
+              patternUnits="userSpaceOnUse"
+              patternTransform="rotate(45)"
+            >
+              <path
+                d="M50 10 H150 M150 10 V100 M150 100 H100 M100 100 V150 M100 150 H180 M50 10 V190 M50 190 H120"
+                stroke={isDark ? "rgba(100, 150, 255, 0.8)" : "rgba(0, 50, 150, 0.8)"}
+                strokeWidth="2"
+                fill="none"
+              />
+              <circle cx="50" cy="10" r="5" fill={isDark ? "rgba(100, 150, 255, 0.8)" : "rgba(0, 50, 150, 0.8)"} />
+              <circle cx="150" cy="10" r="5" fill={isDark ? "rgba(100, 150, 255, 0.8)" : "rgba(0, 50, 150, 0.8)"} />
+              <circle cx="150" cy="100" r="5" fill={isDark ? "rgba(100, 150, 255, 0.8)" : "rgba(0, 50, 150, 0.8)"} />
+              <circle cx="100" cy="100" r="5" fill={isDark ? "rgba(100, 150, 255, 0.8)" : "rgba(0, 50, 150, 0.8)"} />
+              <circle cx="100" cy="150" r="5" fill={isDark ? "rgba(100, 150, 255, 0.8)" : "rgba(0, 50, 150, 0.8)"} />
+              <circle cx="180" cy="150" r="5" fill={isDark ? "rgba(100, 150, 255, 0.8)" : "rgba(0, 50, 150, 0.8)"} />
+              <circle cx="50" cy="190" r="5" fill={isDark ? "rgba(100, 150, 255, 0.8)" : "rgba(0, 50, 150, 0.8)"} />
+              <circle cx="120" cy="190" r="5" fill={isDark ? "rgba(100, 150, 255, 0.8)" : "rgba(0, 50, 150, 0.8)"} />
+            </pattern>
+            <rect x="0" y="0" width="100%" height="100%" fill="url(#circuit-pattern-research)" />
           </svg>
         </div>
-      </div>
 
-      {/* Digital circuit pattern */}
-      <div className="absolute inset-0 z-0 opacity-5">
-        <svg width="100%" height="100%">
-          <pattern
-            id="circuit-pattern-research"
-            x="0"
-            y="0"
-            width="200"
-            height="200"
-            patternUnits="userSpaceOnUse"
-            patternTransform="rotate(45)"
-          >
-            <path
-              d="M50 10 H150 M150 10 V100 M150 100 H100 M100 100 V150 M100 150 H180 M50 10 V190 M50 190 H120"
-              stroke={isDark ? "rgba(100, 150, 255, 0.8)" : "rgba(0, 50, 150, 0.8)"}
-              strokeWidth="2"
-              fill="none"
-            />
-            <circle cx="50" cy="10" r="5" fill={isDark ? "rgba(100, 150, 255, 0.8)" : "rgba(0, 50, 150, 0.8)"} />
-            <circle cx="150" cy="10" r="5" fill={isDark ? "rgba(100, 150, 255, 0.8)" : "rgba(0, 50, 150, 0.8)"} />
-            <circle cx="150" cy="100" r="5" fill={isDark ? "rgba(100, 150, 255, 0.8)" : "rgba(0, 50, 150, 0.8)"} />
-            <circle cx="100" cy="100" r="5" fill={isDark ? "rgba(100, 150, 255, 0.8)" : "rgba(0, 50, 150, 0.8)"} />
-            <circle cx="100" cy="150" r="5" fill={isDark ? "rgba(100, 150, 255, 0.8)" : "rgba(0, 50, 150, 0.8)"} />
-            <circle cx="180" cy="150" r="5" fill={isDark ? "rgba(100, 150, 255, 0.8)" : "rgba(0, 50, 150, 0.8)"} />
-            <circle cx="50" cy="190" r="5" fill={isDark ? "rgba(100, 150, 255, 0.8)" : "rgba(0, 50, 150, 0.8)"} />
-            <circle cx="120" cy="190" r="5" fill={isDark ? "rgba(100, 150, 255, 0.8)" : "rgba(0, 50, 150, 0.8)"} />
-          </pattern>
-          <rect x="0" y="0" width="100%" height="100%" fill="url(#circuit-pattern-research)" />
-        </svg>
-      </div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              {text}
+              <span className={`${showCursor ? "opacity-100" : "opacity-0"} transition-opacity duration-100`}>|</span>
+            </h1>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: isComplete ? 1 : 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="text-xl md:text-2xl text-blue-100 leading-relaxed"
+            >
+              Advancing AI through innovative research and practical applications
+            </motion.p>
+          </div>
+        </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Styles for blob animations */}
+        <style jsx>{`
+          .tech-pattern {
+            background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.15) 1px, transparent 0);
+            background-size: 20px 20px;
+          }
+
+          @keyframes blob {
+            0% {
+              transform: translate(0px, 0px) scale(1);
+            }
+            33% {
+              transform: translate(30px, -50px) scale(1.1);
+            }
+            66% {
+              transform: translate(-20px, 20px) scale(0.9);
+            }
+            100% {
+              transform: translate(0px, 0px) scale(1);
+            }
+          }
+
+          .animate-blob {
+            animation: blob 7s infinite;
+          }
+
+          .animation-delay-2000 {
+            animation-delay: 2s;
+          }
+        `}</style>
+      </section>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-16">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 20 }}
@@ -96,7 +196,6 @@ export default function ResearchClientPage({ researchInterests, publications, co
           transition={{ duration: 0.8 }}
           className="max-w-3xl mx-auto text-center mb-16"
         >
-          <h1 className="text-4xl font-bold mb-4 dark:text-white">Research</h1>
           <p className="text-lg text-gray-600 dark:text-gray-300">
             My research focuses on advancing the state-of-the-art in Artificial Intelligence through innovative
             approaches and applications. I am particularly interested in developing practical solutions for real-world
@@ -128,7 +227,6 @@ export default function ResearchClientPage({ researchInterests, publications, co
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"></div>
                   <div className="absolute top-4 left-4 p-2 bg-blue-600 rounded-full text-white">
-                    {/* Placeholder icon, replace with dynamic icon if available */}
                     <Brain className="h-6 w-6" />
                   </div>
                 </div>
@@ -207,4 +305,4 @@ export default function ResearchClientPage({ researchInterests, publications, co
       </div>
     </div>
   )
-} 
+}

@@ -1,5 +1,3 @@
-// No "use client" directive here as it will be a Server Component
-
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { getAllProjects } from "@/lib/project-utils"

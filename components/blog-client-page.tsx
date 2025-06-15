@@ -1,20 +1,16 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
-import { ProjectCard } from "@/components/project-card"
+import { useRef, useState, useEffect } from "react"
 import { motion, useInView } from "framer-motion"
-import { Input } from "@/components/ui/input"
-import { Search } from "lucide-react"
-import { Project } from "@/lib/projectData"
+import { BlogCard } from "@/components/blog-card"
+import { Post } from "@/lib/blogPostsData"
 import { useTheme } from "next-themes"
 
-interface ProjectsClientPageProps {
-  projects: Project[];
+interface BlogClientPageProps {
+  posts: Post[];
 }
 
-export default function ProjectsClientPage({ projects }: ProjectsClientPageProps) {
-  const [searchTerm, setSearchTerm] = useState("")
-  const [selectedCategory, setSelectedCategory] = useState("All")
+export default function BlogClientPage({ posts }: BlogClientPageProps) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.1 })
   const { theme } = useTheme()
@@ -22,7 +18,7 @@ export default function ProjectsClientPage({ projects }: ProjectsClientPageProps
 
   // Typing effect state
   const [text, setText] = useState("")
-  const fullText = "My Projects"
+  const fullText = "Our Blog"
   const [showCursor, setShowCursor] = useState(true)
   const [isComplete, setIsComplete] = useState(false)
   const [isRestarting, setIsRestarting] = useState(false)
@@ -62,23 +58,6 @@ export default function ProjectsClientPage({ projects }: ProjectsClientPageProps
     return () => clearInterval(interval)
   }, [])
 
-  // Extract unique categories (all unique technologies)
-  const allTechnologies = Array.from(new Set(projects?.flatMap(project => project.technologies) || []));
-  const categories = ["All", ...allTechnologies];
-
-  // Filter projects based on search term and category
-  const filteredProjects = projects.filter((project) => {
-    const matchesSearch =
-      project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      project.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      project.technologies.some((tech) => tech.toLowerCase().includes(searchTerm.toLowerCase()))
-
-    // Filter by any matching technology
-    const matchesCategory = selectedCategory === "All" || project.technologies.includes(selectedCategory);
-
-    return matchesSearch && matchesCategory
-  })
-
   return (
     <div className="flex-grow">
       {/* Hero Section */}
@@ -95,11 +74,11 @@ export default function ProjectsClientPage({ projects }: ProjectsClientPageProps
           <div className="absolute top-0 left-0 w-full h-full opacity-5">
             <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
               <defs>
-                <pattern id="grid-projects" width="40" height="40" patternUnits="userSpaceOnUse">
+                <pattern id="grid-blog" width="40" height="40" patternUnits="userSpaceOnUse">
                   <path d="M 40 0 L 0 0 0 40" fill="none" stroke={isDark ? "#4F46E5" : "#2563EB"} strokeWidth="1" />
                 </pattern>
               </defs>
-              <rect width="100%" height="100%" fill="url(#grid-projects)" />
+              <rect width="100%" height="100%" fill="url(#grid-blog)" />
             </svg>
           </div>
         </div>
@@ -108,7 +87,7 @@ export default function ProjectsClientPage({ projects }: ProjectsClientPageProps
         <div className="absolute inset-0 z-0 opacity-5">
           <svg width="100%" height="100%">
             <pattern
-              id="circuit-pattern-projects"
+              id="circuit-pattern-blog"
               x="0"
               y="0"
               width="200"
@@ -131,7 +110,7 @@ export default function ProjectsClientPage({ projects }: ProjectsClientPageProps
               <circle cx="50" cy="190" r="5" fill={isDark ? "rgba(100, 150, 255, 0.8)" : "rgba(0, 50, 150, 0.8)"} />
               <circle cx="120" cy="190" r="5" fill={isDark ? "rgba(100, 150, 255, 0.8)" : "rgba(0, 50, 150, 0.8)"} />
             </pattern>
-            <rect x="0" y="0" width="100%" height="100%" fill="url(#circuit-pattern-projects)" />
+            <rect x="0" y="0" width="100%" height="100%" fill="url(#circuit-pattern-blog)" />
           </svg>
         </div>
 
@@ -147,7 +126,7 @@ export default function ProjectsClientPage({ projects }: ProjectsClientPageProps
               transition={{ duration: 0.8, delay: 0.5 }}
               className="text-xl md:text-2xl text-blue-100 leading-relaxed"
             >
-              Explore my research projects and applications in AI, NLP, and machine learning
+              Insights, tutorials, and updates from our research team
             </motion.p>
           </div>
         </div>
@@ -185,49 +164,11 @@ export default function ProjectsClientPage({ projects }: ProjectsClientPageProps
       </section>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="mb-12">
-          <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
-            <div className="relative w-full md:w-96">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-              <Input
-                type="text"
-                placeholder="Search projects..."
-                className="pl-10"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-            </div>
-
-            <div className="flex flex-wrap gap-2 justify-center md:justify-end">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                    selectedCategory === category
-                      ? "bg-blue-600 text-white"
-                      : "bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600"
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {posts?.map((post, index) => (
+            <BlogCard key={post.slug} post={post} index={index} />
+          ))}
         </div>
-
-        {filteredProjects.length === 0 ? (
-          <div className="text-center py-20">
-            <h3 className="text-xl font-medium text-gray-700 dark:text-gray-300">No projects found</h3>
-            <p className="text-gray-500 dark:text-gray-400 mt-2">Try adjusting your search or filter criteria</p>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project, index) => (
-              <ProjectCard key={project.slug} project={project} index={index} />
-            ))}
-          </div>
-        )}
       </div>
     </div>
   )

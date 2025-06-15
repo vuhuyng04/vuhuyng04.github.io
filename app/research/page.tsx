@@ -4,6 +4,11 @@ import Footer from "@/components/footer"
 import { getResearchContent, getContactContent } from "@/lib/profile-utils"
 import { notFound } from "next/navigation"
 
+export const metadata = {
+  title: "Research | My Personal Website",
+  description: "Explore my research interests, publications, and collaborations in AI and machine learning.",
+}
+
 export default async function Research() {
   const researchData = await getResearchContent()
   const contactData = await getContactContent()
