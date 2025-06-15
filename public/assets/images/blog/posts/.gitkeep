@@ -1,0 +1,12 @@
+# This file ensures the directory is tracked by git
+# Place your blog post images in this directory
+# 
+# Recommended naming convention:
+# - Use descriptive names that match your post slugs
+# - Use lowercase with hyphens
+# - Include the post date if helpful
+# 
+# Examples:
+# - ai-trends-2024.jpg
+# - ml-production-best-practices.png
+# - deep-learning-optimization-chart.svg
