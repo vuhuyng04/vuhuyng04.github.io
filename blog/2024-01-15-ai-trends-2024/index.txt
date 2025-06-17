@@ -1,0 +1,79 @@
+1:"$Sreact.fragment"
+2:I[9304,["177","static/chunks/app/layout-8aad462d2cb406f4.js"],"ThemeProvider"]
+3:I[7555,[],""]
+4:I[1295,[],""]
+6:I[9665,[],"OutletBoundary"]
+9:I[9665,[],"ViewportBoundary"]
+b:I[9665,[],"MetadataBoundary"]
+d:I[6614,[],""]
+:HL["/_next/static/media/e4af272ccee01ff0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/931b179cff3131dc.css","style"]
+:HL["/_next/static/css/6e7947769488fa93.css","style"]
+0:{"P":null,"b":"qOpl-d8gINZxPeyCim2nu","p":"","c":["","blog","2024-01-15-ai-trends-2024",""],"i":false,"f":[[["",{"children":["blog",{"children":[["slug","2024-01-15-ai-trends-2024","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/931b179cff3131dc.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/css/6e7947769488fa93.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","suppressHydrationWarning":true,"children":["$","body",null,{"className":"__className_e8ce0c","children":["$","$L2",null,{"attribute":"class","defaultTheme":"system","enableSystem":true,"disableTransitionOnChange":true,"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]]}],{"children":["blog",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","2024-01-15-ai-trends-2024","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5","$undefined",null,["$","$L6",null,{"children":["$L7","$L8",null]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","MJ8P_a0ZiuYu5y2NxiPsE",{"children":[["$","$L9",null,{"children":"$La"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],["$","$Lb",null,{"children":"$Lc"}]]}],false]],"m":"$undefined","G":["$d","$undefined"],"s":false,"S":true}
+e:I[8989,["876","static/chunks/876-0bdc6b2d816cb5fd.js","63","static/chunks/63-60e30011514e8010.js","430","static/chunks/430-45d6d5afd04872d1.js","953","static/chunks/app/blog/%5Bslug%5D/page-34867df51a4774eb.js"],"default"]
+f:I[3063,["876","static/chunks/876-0bdc6b2d816cb5fd.js","63","static/chunks/63-60e30011514e8010.js","430","static/chunks/430-45d6d5afd04872d1.js","953","static/chunks/app/blog/%5Bslug%5D/page-34867df51a4774eb.js"],"Image"]
+11:I[7746,["876","static/chunks/876-0bdc6b2d816cb5fd.js","63","static/chunks/63-60e30011514e8010.js","430","static/chunks/430-45d6d5afd04872d1.js","953","static/chunks/app/blog/%5Bslug%5D/page-34867df51a4774eb.js"],"default"]
+10:Tc31,
+As we step into 2024, the artificial intelligence landscape continues to evolve at an unprecedented pace. From breakthrough language models to revolutionary applications in healthcare and autonomous systems, AI is reshaping how we work, live, and interact with technology.
+
+## 1. Multimodal AI Systems
+
+The integration of text, image, audio, and video processing in single AI systems is becoming increasingly sophisticated. These multimodal models can understand and generate content across different media types, opening new possibilities for:
+
+- Enhanced virtual assistants that can see, hear, and respond naturally
+- Creative tools that combine text descriptions with visual generation
+- Educational platforms that adapt to different learning styles
+
+## 2. AI in Scientific Discovery
+
+AI is accelerating scientific research across multiple disciplines:
+
+### Drug Discovery
+- Protein folding prediction improvements
+- Faster identification of drug candidates
+- Reduced time from research to clinical trials
+
+### Climate Science
+- Better climate modeling and prediction
+- Optimization of renewable energy systems
+- Carbon capture technology development
+
+## 3. Edge AI and Efficiency
+
+The push toward running AI models on edge devices continues to gain momentum:
+
+- **Smaller, faster models**: Techniques like quantization and pruning make models more efficient
+- **Privacy preservation**: Processing data locally reduces privacy concerns
+- **Real-time applications**: Instant responses for autonomous vehicles and IoT devices
+
+## 4. AI Governance and Ethics
+
+As AI becomes more prevalent, the focus on responsible development intensifies:
+
+- Regulatory frameworks are being established globally
+- Bias detection and mitigation tools are improving
+- Transparency in AI decision-making is becoming a requirement
+
+## 5. Generative AI Beyond Text
+
+While ChatGPT sparked the generative AI revolution, 2024 will see expansion into:
+
+- **Code generation**: More sophisticated programming assistants
+- **Video creation**: AI-generated video content for entertainment and education
+- **3D modeling**: Automated creation of 3D assets for gaming and design
+
+## The Road Ahead
+
+The AI trends of 2024 point toward a future where artificial intelligence becomes more integrated, efficient, and responsible. As researchers and developers, we must balance innovation with ethical considerations, ensuring that AI benefits all of humanity.
+
+The key to success in this rapidly evolving field is staying informed, experimenting with new technologies, and maintaining a focus on solving real-world problems. Whether you're a researcher, developer, or simply an AI enthusiast, 2024 promises to be an exciting year full of breakthroughs and discoveries.
+
+## Conclusion
+
+As we navigate through 2024, these AI trends will likely shape not just the technology industry, but society as a whole. By understanding and preparing for these developments, we can better harness the power of AI to create positive change in the world.
+
+Stay tuned for more insights and updates on the latest developments in artificial intelligence and machine learning!5:["$","main",null,{"className":"min-h-screen flex flex-col","children":[["$","$Le",null,{}],["$","article",null,{"className":"flex-grow pt-24 pb-16 bg-gray-50 dark:bg-gray-800","children":["$","div",null,{"className":"container mx-auto px-4 sm:px-6 lg:px-8","children":["$","div",null,{"className":"max-w-3xl mx-auto","children":[["$","div",null,{"className":"mb-8","children":[["$","h1",null,{"className":"text-4xl font-bold mb-4 dark:text-white","children":"AI Trends to Watch in 2024"}],["$","div",null,{"className":"flex items-center text-gray-600 dark:text-gray-400 mb-8","children":[["$","time",null,{"dateTime":"$D2024-01-15T00:00:00.000Z","children":"January 15, 2024"}],["$","span",null,{"className":"mx-2","children":"•"}],["$","span",null,{"children":[7," min read"]}],[["$","span",null,{"className":"mx-2","children":"•"}],["$","div",null,{"className":"flex flex-wrap gap-2","children":[["$","span","AI",{"className":"bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-2 py-1 rounded","children":"AI"}],["$","span","Trends",{"className":"bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-2 py-1 rounded","children":"Trends"}],["$","span","Technology",{"className":"bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-2 py-1 rounded","children":"Technology"}],["$","span","Future",{"className":"bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-2 py-1 rounded","children":"Future"}]]}]]]}],["$","div",null,{"className":"relative h-[400px] w-full mb-8 rounded-lg overflow-hidden shadow-lg","children":["$","$Lf",null,{"src":"/placeholder.png","alt":"AI Trends to Watch in 2024","fill":true,"className":"object-cover"}]}]]}],["$","div",null,{"className":"prose prose-lg max-w-none dark:prose-invert prose-headings:text-gray-900 dark:prose-headings:text-white prose-a:text-blue-600","dangerouslySetInnerHTML":{"__html":"$10"}}],["$","div",null,{"className":"mt-12 pt-6 border-t border-gray-200 dark:border-gray-700","children":["$","div",null,{"className":"flex items-center","children":[["$","div",null,{"className":"flex-shrink-0","children":["$","$Lf",null,{"className":"h-12 w-12 rounded-full object-cover","src":"/assets/images/photo.jpg","alt":"Vu Huy","width":48,"height":48}]}],["$","div",null,{"className":"ml-4","children":[["$","p",null,{"className":"text-lg font-medium text-gray-900 dark:text-white","children":"Vu Huy"}],["$","div",null,{"className":"text-gray-600 dark:text-gray-400","children":["$","p",null,{"children":"Author, Researcher"}]}]]}]]}]}]]}]}]}],["$","$L11",null,{"contactInfo":[{"icon":"Mail","label":"Email","value":"huynvce180384@fpt.edu.vn","href":"mailto:huynvce180384@fpt.edu.vn"},{"icon":"Phone","label":"Phone","value":"+84 379 934 607","href":"tel:+84379934607"},{"icon":"MapPin","label":"Location","value":"San Francisco, CA","href":"https://maps.google.com/?q=San%20Francisco%2C%20CA"},{"icon":"Clock","label":"Availability","value":"Mon - Fri: 9:00 AM - 5:00 PM (PST)","href":null}],"socialLinks":[{"platform":"github","url":"https://github.com/vuhuyai"},{"platform":"linkedin","url":"https://linkedin.com/in/vuhuyai"},{"platform":"twitter","url":"https://twitter.com/vuhuyai"}]}]]}]
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+7:null
+8:null
+c:[["$","title","0",{"children":"AI Trends to Watch in 2024 | My Blog"}],["$","meta","1",{"name":"description","content":"Exploring the most significant artificial intelligence trends that will shape the technology landscape in 2024."}],["$","meta","2",{"name":"author","content":"Vu Huy"}],["$","meta","3",{"name":"generator","content":"v0.dev"}],["$","meta","4",{"name":"keywords","content":"AI,Research,Blog,Machine Learning,Data Science"}],["$","meta","5",{"property":"og:title","content":"AI Trends to Watch in 2024"}],["$","meta","6",{"property":"og:description","content":"Exploring the most significant artificial intelligence trends that will shape the technology landscape in 2024."}],["$","meta","7",{"property":"og:type","content":"article"}],["$","meta","8",{"property":"article:published_time","content":"Mon Jan 15 2024 00:00:00 GMT+0000 (Coordinated Universal Time)"}],["$","meta","9",{"property":"article:author","content":"Vu Huy"}],["$","meta","10",{"name":"twitter:card","content":"summary"}],["$","meta","11",{"name":"twitter:title","content":"AI Trends to Watch in 2024"}],["$","meta","12",{"name":"twitter:description","content":"Exploring the most significant artificial intelligence trends that will shape the technology landscape in 2024."}]]

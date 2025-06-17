@@ -1,0 +1,201 @@
+1:"$Sreact.fragment"
+2:I[9304,["177","static/chunks/app/layout-8aad462d2cb406f4.js"],"ThemeProvider"]
+3:I[7555,[],""]
+4:I[1295,[],""]
+6:I[9665,[],"OutletBoundary"]
+9:I[9665,[],"ViewportBoundary"]
+b:I[9665,[],"MetadataBoundary"]
+d:I[6614,[],""]
+:HL["/_next/static/media/e4af272ccee01ff0-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/931b179cff3131dc.css","style"]
+:HL["/_next/static/css/6e7947769488fa93.css","style"]
+0:{"P":null,"b":"qOpl-d8gINZxPeyCim2nu","p":"","c":["","blog","2024-02-10-machine-learning-best-practices",""],"i":false,"f":[[["",{"children":["blog",{"children":[["slug","2024-02-10-machine-learning-best-practices","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/931b179cff3131dc.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/css/6e7947769488fa93.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","suppressHydrationWarning":true,"children":["$","body",null,{"className":"__className_e8ce0c","children":["$","$L2",null,{"attribute":"class","defaultTheme":"system","enableSystem":true,"disableTransitionOnChange":true,"children":["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]}]]}],{"children":["blog",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","2024-02-10-machine-learning-best-practices","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5","$undefined",null,["$","$L6",null,{"children":["$L7","$L8",null]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","C6UqcJ05yLMVgBf3eMSUp",{"children":[["$","$L9",null,{"children":"$La"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],["$","$Lb",null,{"children":"$Lc"}]]}],false]],"m":"$undefined","G":["$d","$undefined"],"s":false,"S":true}
+e:I[8989,["876","static/chunks/876-0bdc6b2d816cb5fd.js","63","static/chunks/63-60e30011514e8010.js","430","static/chunks/430-45d6d5afd04872d1.js","953","static/chunks/app/blog/%5Bslug%5D/page-34867df51a4774eb.js"],"default"]
+f:I[3063,["876","static/chunks/876-0bdc6b2d816cb5fd.js","63","static/chunks/63-60e30011514e8010.js","430","static/chunks/430-45d6d5afd04872d1.js","953","static/chunks/app/blog/%5Bslug%5D/page-34867df51a4774eb.js"],"Image"]
+11:I[7746,["876","static/chunks/876-0bdc6b2d816cb5fd.js","63","static/chunks/63-60e30011514e8010.js","430","static/chunks/430-45d6d5afd04872d1.js","953","static/chunks/app/blog/%5Bslug%5D/page-34867df51a4774eb.js"],"default"]
+10:T180c,
+Deploying machine learning models in production is vastly different from training them in a research environment. Production systems require reliability, scalability, and maintainability that go far beyond achieving good accuracy metrics.
+
+## 1. Data Pipeline Design
+
+### Data Quality Assurance
+- **Validation schemas**: Define and enforce data schemas at ingestion
+- **Anomaly detection**: Monitor for data drift and outliers
+- **Data lineage**: Track data sources and transformations
+
+### Scalable Data Processing
+```python
+# Example: Data validation pipeline
+def validate_input_data(data):
+    schema = {
+        'feature_1': {'type': 'float', 'range': (0, 100)},
+        'feature_2': {'type': 'string', 'allowed_values': ['A', 'B', 'C']}
+    }
+    
+    for column, rules in schema.items():
+        if column not in data.columns:
+            raise ValueError(f"Missing required column: {column}")
+        
+        if rules['type'] == 'float':
+            if not data[column].between(rules['range'][0], rules['range'][1]).all():
+                raise ValueError(f"Values in {column} outside allowed range")
+    
+    return True
+```
+
+## 2. Model Versioning and Management
+
+### Version Control Strategy
+- **Model artifacts**: Store models with semantic versioning
+- **Experiment tracking**: Use tools like MLflow or Weights & Biases
+- **Reproducibility**: Ensure experiments can be reproduced exactly
+
+### Model Registry
+- Centralized storage for all model versions
+- Metadata tracking (performance metrics, training data, hyperparameters)
+- Approval workflows for production deployment
+
+## 3. Monitoring and Observability
+
+### Performance Monitoring
+- **Accuracy metrics**: Track model performance over time
+- **Latency monitoring**: Ensure response times meet SLA requirements
+- **Resource utilization**: Monitor CPU, memory, and GPU usage
+
+### Data Drift Detection
+```python
+# Example: Statistical drift detection
+from scipy import stats
+
+def detect_drift(reference_data, current_data, threshold=0.05):
+    """Detect drift using Kolmogorov-Smirnov test"""
+    statistic, p_value = stats.ks_2samp(reference_data, current_data)
+    
+    if p_value < threshold:
+        return True, f"Drift detected (p-value: {p_value:.4f})"
+    return False, f"No drift detected (p-value: {p_value:.4f})"
+```
+
+## 4. Deployment Strategies
+
+### Blue-Green Deployment
+- Maintain two identical production environments
+- Switch traffic between environments for zero-downtime deployments
+- Quick rollback capability if issues arise
+
+### Canary Releases
+- Gradually roll out new models to a subset of users
+- Monitor performance and gradually increase traffic
+- Automatic rollback if performance degrades
+
+### A/B Testing
+- Compare new models against existing ones
+- Statistical significance testing
+- Business metric optimization
+
+## 5. Security and Compliance
+
+### Model Security
+- **Input validation**: Sanitize all inputs to prevent adversarial attacks
+- **Access control**: Implement proper authentication and authorization
+- **Audit logging**: Track all model predictions and decisions
+
+### Privacy Protection
+- Data anonymization and pseudonymization
+- Compliance with GDPR, CCPA, and other regulations
+- Secure data transmission and storage
+
+## 6. Scalability Considerations
+
+### Horizontal Scaling
+- Design stateless model services
+- Use load balancers for traffic distribution
+- Implement auto-scaling based on demand
+
+### Caching Strategies
+```python
+# Example: Redis caching for model predictions
+import redis
+import json
+import hashlib
+
+class ModelCache:
+    def __init__(self, redis_host='localhost', redis_port=6379):
+        self.redis_client = redis.Redis(host=redis_host, port=redis_port)
+        self.ttl = 3600  # 1 hour cache
+    
+    def get_cache_key(self, input_data):
+        """Generate cache key from input data"""
+        data_str = json.dumps(input_data, sort_keys=True)
+        return hashlib.md5(data_str.encode()).hexdigest()
+    
+    def get_prediction(self, input_data):
+        cache_key = self.get_cache_key(input_data)
+        cached_result = self.redis_client.get(cache_key)
+        
+        if cached_result:
+            return json.loads(cached_result)
+        
+        return None
+    
+    def cache_prediction(self, input_data, prediction):
+        cache_key = self.get_cache_key(input_data)
+        self.redis_client.setex(
+            cache_key, 
+            self.ttl, 
+            json.dumps(prediction)
+        )
+```
+
+## 7. Error Handling and Resilience
+
+### Graceful Degradation
+- Fallback models for when primary models fail
+- Default predictions for edge cases
+- Circuit breaker patterns to prevent cascade failures
+
+### Retry Logic
+- Exponential backoff for transient failures
+- Maximum retry limits to prevent infinite loops
+- Dead letter queues for failed requests
+
+## 8. Testing Strategies
+
+### Unit Testing
+- Test individual model components
+- Mock external dependencies
+- Validate data transformations
+
+### Integration Testing
+- End-to-end pipeline testing
+- API contract testing
+- Performance testing under load
+
+### Shadow Testing
+- Run new models alongside production models
+- Compare outputs without affecting users
+- Validate performance before full deployment
+
+## 9. Documentation and Knowledge Sharing
+
+### Model Documentation
+- Model cards describing capabilities and limitations
+- API documentation with examples
+- Troubleshooting guides
+
+### Runbooks
+- Deployment procedures
+- Incident response protocols
+- Monitoring and alerting setup
+
+## Conclusion
+
+Building production-ready machine learning systems requires careful consideration of many factors beyond model accuracy. By following these best practices, you can create robust, scalable, and maintainable ML systems that deliver value to users while minimizing operational overhead.
+
+Remember that production ML is an iterative process. Start with simple, reliable systems and gradually add complexity as your understanding of the domain and requirements evolves.
+
+The key to success is balancing innovation with operational excellence, ensuring that your ML systems not only perform well but also integrate seamlessly into your broader technology ecosystem.5:["$","main",null,{"className":"min-h-screen flex flex-col","children":[["$","$Le",null,{}],["$","article",null,{"className":"flex-grow pt-24 pb-16 bg-gray-50 dark:bg-gray-800","children":["$","div",null,{"className":"container mx-auto px-4 sm:px-6 lg:px-8","children":["$","div",null,{"className":"max-w-3xl mx-auto","children":[["$","div",null,{"className":"mb-8","children":[["$","h1",null,{"className":"text-4xl font-bold mb-4 dark:text-white","children":"Machine Learning Best Practices for Production Systems"}],["$","div",null,{"className":"flex items-center text-gray-600 dark:text-gray-400 mb-8","children":[["$","time",null,{"dateTime":"$D2024-02-10T00:00:00.000Z","children":"February 10, 2024"}],["$","span",null,{"className":"mx-2","children":"•"}],["$","span",null,{"children":[10," min read"]}],[["$","span",null,{"className":"mx-2","children":"•"}],["$","div",null,{"className":"flex flex-wrap gap-2","children":[["$","span","Machine Learning",{"className":"bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-2 py-1 rounded","children":"Machine Learning"}],["$","span","Production",{"className":"bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-2 py-1 rounded","children":"Production"}],["$","span","MLOps",{"className":"bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-2 py-1 rounded","children":"MLOps"}],["$","span","Best Practices",{"className":"bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs px-2 py-1 rounded","children":"Best Practices"}]]}]]]}],["$","div",null,{"className":"relative h-[400px] w-full mb-8 rounded-lg overflow-hidden shadow-lg","children":["$","$Lf",null,{"src":"/placeholder.png","alt":"Machine Learning Best Practices for Production Systems","fill":true,"className":"object-cover"}]}]]}],["$","div",null,{"className":"prose prose-lg max-w-none dark:prose-invert prose-headings:text-gray-900 dark:prose-headings:text-white prose-a:text-blue-600","dangerouslySetInnerHTML":{"__html":"$10"}}],["$","div",null,{"className":"mt-12 pt-6 border-t border-gray-200 dark:border-gray-700","children":["$","div",null,{"className":"flex items-center","children":[["$","div",null,{"className":"flex-shrink-0","children":["$","$Lf",null,{"className":"h-12 w-12 rounded-full object-cover","src":"/assets/images/photo.jpg","alt":"Vu Huy","width":48,"height":48}]}],["$","div",null,{"className":"ml-4","children":[["$","p",null,{"className":"text-lg font-medium text-gray-900 dark:text-white","children":"Vu Huy"}],["$","div",null,{"className":"text-gray-600 dark:text-gray-400","children":["$","p",null,{"children":"Author, Researcher"}]}]]}]]}]}]]}]}]}],["$","$L11",null,{"contactInfo":[{"icon":"Mail","label":"Email","value":"huynvce180384@fpt.edu.vn","href":"mailto:huynvce180384@fpt.edu.vn"},{"icon":"Phone","label":"Phone","value":"+84 379 934 607","href":"tel:+84379934607"},{"icon":"MapPin","label":"Location","value":"San Francisco, CA","href":"https://maps.google.com/?q=San%20Francisco%2C%20CA"},{"icon":"Clock","label":"Availability","value":"Mon - Fri: 9:00 AM - 5:00 PM (PST)","href":null}],"socialLinks":[{"platform":"github","url":"https://github.com/vuhuyai"},{"platform":"linkedin","url":"https://linkedin.com/in/vuhuyai"},{"platform":"twitter","url":"https://twitter.com/vuhuyai"}]}]]}]
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+7:null
+8:null
+c:[["$","title","0",{"children":"Machine Learning Best Practices for Production Systems | My Blog"}],["$","meta","1",{"name":"description","content":"Essential guidelines and practices for deploying machine learning models in production environments."}],["$","meta","2",{"name":"author","content":"Vu Huy"}],["$","meta","3",{"name":"generator","content":"v0.dev"}],["$","meta","4",{"name":"keywords","content":"AI,Research,Blog,Machine Learning,Data Science"}],["$","meta","5",{"property":"og:title","content":"Machine Learning Best Practices for Production Systems"}],["$","meta","6",{"property":"og:description","content":"Essential guidelines and practices for deploying machine learning models in production environments."}],["$","meta","7",{"property":"og:type","content":"article"}],["$","meta","8",{"property":"article:published_time","content":"Sat Feb 10 2024 00:00:00 GMT+0000 (Coordinated Universal Time)"}],["$","meta","9",{"property":"article:author","content":"Vu Huy"}],["$","meta","10",{"name":"twitter:card","content":"summary"}],["$","meta","11",{"name":"twitter:title","content":"Machine Learning Best Practices for Production Systems"}],["$","meta","12",{"name":"twitter:description","content":"Essential guidelines and practices for deploying machine learning models in production environments."}]]
