@@ -14,28 +14,18 @@ const Hero = dynamic(() => import("@/components/hero"), { ssr: false })
 
 export default async function Home() {
   const posts = await getAllPosts()
-  console.log("Home page - Posts:", posts)
   const certifications = await getCertifications()
-  console.log("Home page - Certifications:", certifications)
   const basicInfo = await getBasicInfo()
-  console.log("Home page - Basic Info:", basicInfo)
   const allSkills = await getSkills()
-  console.log("Home page - All Skills:", allSkills)
   const skills = {
     technicalSkills: allSkills.filter(skill => skill.icon),
     tools: allSkills.filter(skill => !skill.icon)
   }
-  console.log("Home page - Formatted Skills:", skills)
   const educationData = await getEducation()
-  console.log("Home page - Education Data:", educationData)
   const experienceData = await getExperience()
-  console.log("Home page - Experience Data:", experienceData)
   const researchInterests = await getResearchInterests()
-  console.log("Home page - Research Interests:", researchInterests)
   const aboutContent = await getAboutContent()
-  console.log("Home page - About Content:", aboutContent)
   const contactContent = await getContactContent();
-  console.log("Home page - Contact Content:", contactContent)
 
   return (
     <main className="min-h-screen flex flex-col relative overflow-hidden">
