@@ -1,5 +1,5 @@
 import Navbar from "@/components/navbar"
-import { dynamic } from "next/dynamic"
+import dynamic from "next/dynamic"
 import AboutSection from "@/components/about-section"
 import Footer from "@/components/footer"
 import RecentPosts from "@/components/recent-posts"
