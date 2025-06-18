@@ -1,28 +1,4 @@
 {
-  "basic-info": {
-    "name": "Dr. Vu Huy",
-    "title": "AI Researcher & Specialist",
-    "email": "contact@vuhuy.ai",
-    "phone": "+1 (555) 123-4567",
-    "location": "San Francisco, CA",
-    "website": "https://vuhuy.ai",
-    "profileImage": "/placeholder.svg?height=600&width=600&text=Profile+Image",
-    "bio": "I'm a passionate AI researcher and engineer with over 6 years of experience in machine learning, data science, and artificial intelligence. I specialize in developing cutting-edge AI solutions that solve real-world problems.",
-    "socialLinks": [
-      {
-        "platform": "github",
-        "url": "https://github.com/vuhuyai"
-      },
-      {
-        "platform": "linkedin",
-        "url": "https://linkedin.com/in/vuhuyai"
-      },
-      {
-        "platform": "twitter",
-        "url": "https://twitter.com/vuhuyai"
-      }
-    ]
-  },
   "about": {
     "mission": "At VUHUY AI, we're dedicated to pushing the boundaries of artificial intelligence through innovative research and practical applications. Our mission is to develop AI solutions that address real-world challenges and make advanced technology accessible to everyone.",
     "values": [
@@ -58,17 +34,18 @@
         "image": "/placeholder.svg?height=300&width=300&text=MJ",
         "bio": "Focuses on reinforcement learning and multi-agent systems."
       }
-    ]
+    ],
+    "content": "# Nội dung trang About\n\nĐây là file chứa nội dung cho trang About. Chỉnh sửa phần YAML frontmatter ở trên để cập nhật thông tin hiển thị.\n\n## Hướng dẫn chỉnh sửa:\n\n1. **mission**: Sứ mệnh của tổ chức/cá nhân\n2. **values**: Danh sách các giá trị cốt lõi\n   - name: Tên giá trị\n   - description: Mô tả chi tiết\n3. **team**: Danh sách thành viên nhóm\n   - name: Tên thành viên\n   - role: Vai trò/chức vụ\n   - image: Đường dẫn ảnh đại diện\n   - bio: Tiểu sử ngắn\n\nSau khi chỉnh sửa, chạy lệnh `npm run jekyll:update` để cập nhật dữ liệu."
   },
-  "contact": {
-    "email": "contact@vuhuy.ai",
+  "basic-info": {
+    "name": "Vu Huy",
+    "title": "AI Researcher & Specialist",
+    "email": "huynvce180384@fpt.edu.vn",
     "phone": "+1 (555) 123-4567",
-    "address": "123 AI Street, San Francisco, CA 94105",
-    "mapLocation": {
-      "lat": 37.7749,
-      "lng": -122.4194,
-      "zoom": 13
-    },
+    "location": "San Francisco, CA",
+    "website": "https://vuhuy.ai",
+    "profileImage": "/assets/images/photo.jpg",
+    "bio": "I'm a passionate AI researcher and engineer with over 6 years of experience in machine learning, data science, and artificial intelligence. I specialize in developing cutting-edge AI solutions that solve real-world problems.",
     "socialLinks": [
       {
         "platform": "github",
@@ -83,7 +60,208 @@
         "url": "https://twitter.com/vuhuyai"
       }
     ],
-    "formEndpoint": "https://formspree.io/f/your-form-id",
-    "availabilityHours": "Monday - Friday: 9:00 AM - 5:00 PM (PST)"
+    "content": "# Thông tin cá nhân cơ bản\n\nĐây là file chứa thông tin cá nhân cơ bản. Chỉnh sửa phần YAML frontmatter ở trên để cập nhật thông tin hiển thị trên website.\n\n## Hướng dẫn chỉnh sửa:\n\n1. **name**: Tên đầy đủ của bạn\n2. **title**: Chức danh/vị trí công việc\n3. **email**: Email liên hệ\n4. **phone**: Số điện thoại\n5. **location**: Địa điểm hiện tại\n6. **website**: Website cá nhân\n7. **profileImage**: Đường dẫn đến ảnh đại diện\n8. **bio**: Mô tả ngắn về bản thân\n9. **socialLinks**: Danh sách các liên kết mạng xã hội\n\nSau khi chỉnh sửa, chạy lệnh `npm run jekyll:update` để cập nhật dữ liệu."
+  },
+  "contact": {
+    "email": "huynvce180384@fpt.edu.vn",
+    "phone": "+84 379 934 607",
+    "location": "San Francisco, CA",
+    "availability": "Mon - Fri: 9:00 AM - 5:00 PM (PST)",
+    "socialLinks": [
+      {
+        "platform": "github",
+        "url": "https://github.com/vuhuyai"
+      },
+      {
+        "platform": "linkedin",
+        "url": "https://linkedin.com/in/vuhuyai"
+      },
+      {
+        "platform": "twitter",
+        "url": "https://twitter.com/vuhuyai"
+      }
+    ],
+    "faqs": [
+      {
+        "question": "What types of AI projects do you work on?",
+        "answer": "I specialize in natural language processing, machine learning systems, and applied AI research. My work spans from research papers to production-ready AI solutions."
+      },
+      {
+        "question": "Are you available for consulting or collaboration?",
+        "answer": "Yes, I'm open to consulting opportunities and research collaborations. Please reach out with details about your project and timeline."
+      },
+      {
+        "question": "How can I stay updated with your research?",
+        "answer": "You can follow my blog for the latest research updates, subscribe to my newsletter, or connect with me on social media platforms."
+      },
+      {
+        "question": "Do you offer mentoring or educational services?",
+        "answer": "I occasionally offer mentoring for AI researchers and students. Please contact me with your background and specific areas where you'd like guidance."
+      }
+    ],
+    "content": "## Get In Touch\nLet's discuss AI research, collaboration opportunities, or how we can work together on your next project."
+  },
+  "education": {
+    "degrees": [
+      {
+        "degree": "B.S. in Artificial Intelligence",
+        "school": "FPT UNIVERSIRY",
+        "location": "Cantho City, Vietnam",
+        "period": "10/2022 - 10/2026",
+        "focus": "Deep Learning & GenAI",
+        "gpa": "3.2/4.0",
+        "thesis": null,
+        "logo": "/assets/images/logos/logofptu.png"
+      }
+    ],
+    "content": "# Học vấn\n\nĐây là file chứa thông tin học vấn. Chỉnh sửa phần YAML frontmatter ở trên để cập nhật thông tin hiển thị.\n\n## Hướng dẫn chỉnh sửa:\n\n1. **degrees**: Danh sách bằng cấp\n   - degree: Tên bằng cấp\n   - school: Tên trường\n   - location: Địa điểm\n   - period: Thời gian học\n   - focus: Chuyên ngành\n   - gpa: Điểm GPA\n   - thesis: Tên luận văn/luận án (có thể để null)\n\nSau khi chỉnh sửa, chạy lệnh `npm run jekyll:update` để cập nhật dữ liệu."
+  },
+  "experience": {
+    "jobs": [
+      {
+        "title": "Student Internship",
+        "company": "FPT Software",
+        "location": "Boston, MA",
+        "period": "5/2025 - 9/2025",
+        "description": "Built and deployed machine learning models for production systems serving millions of users.",
+        "achievements": [
+          "Implemented ML pipelines reducing inference time by 40%",
+          "Designed recommendation systems increasing user engagement by 25%",
+          "Mentored junior developers and conducted technical interviews",
+          "Optimized data processing workflows saving $200K annually"
+        ],
+        "logo": "/assets/images/logos/logofsoft.png"
+      },
+      {
+        "title": "Member Reseacher",
+        "company": "AI VIET NAM",
+        "location": "New York, NY",
+        "period": "5/2024 - 5/2025",
+        "description": "Analyzed large datasets to extract business insights and built predictive models.",
+        "achievements": [
+          "Created predictive models improving business KPIs by 30%",
+          "Automated data processing workflows saving 20 hours/week",
+          "Presented findings to C-level executives",
+          "Implemented A/B testing framework for product features"
+        ],
+        "logo": "/assets/images/logos/logoaivn.png"
+      }
+    ],
+    "content": "# Kinh nghiệm làm việc\n\nĐây là file chứa thông tin kinh nghiệm làm việc. Chỉnh sửa phần YAML frontmatter ở trên để cập nhật thông tin hiển thị.\n\n## Hướng dẫn chỉnh sửa:\n\n1. **jobs**: Danh sách công việc\n   - title: Chức danh\n   - company: Tên công ty\n   - location: Địa điểm làm việc\n   - period: Thời gian làm việc\n   - description: Mô tả công việc\n   - achievements: Danh sách thành tích\n\nSau khi chỉnh sửa, chạy lệnh `npm run jekyll:update` để cập nhật dữ liệu."
+  },
+  "research": {
+    "interests": [
+      "Natural Language Processing",
+      "Machine Learning Systems",
+      "Applied AI Research",
+      "Ethical AI Development",
+      "Human-AI Collaboration",
+      "Cross-lingual Technologies"
+    ],
+    "publications": [
+      {
+        "title": "Advanced Transformer Models for Low-Resource Languages",
+        "journal": "Journal of Artificial Intelligence Research",
+        "year": 2023,
+        "url": "https://example.com/paper1",
+        "description": "A novel approach to fine-tuning transformer models for languages with limited data resources."
+      },
+      {
+        "title": "Ethical Considerations in AI Development",
+        "journal": "AI Ethics Conference",
+        "year": 2022,
+        "url": "https://example.com/paper2",
+        "description": "An examination of ethical frameworks for developing responsible AI systems."
+      },
+      {
+        "title": "Multi-modal Learning for Medical Diagnosis",
+        "journal": "Healthcare AI Journal",
+        "year": 2021,
+        "url": "https://example.com/paper3",
+        "description": "A system that combines imaging data with text reports for improved diagnostic accuracy."
+      }
+    ],
+    "content": "# Nghiên cứu và xuất bản\n\nĐây là file chứa thông tin nghiên cứu. Chỉnh sửa phần YAML frontmatter ở trên để cập nhật thông tin hiển thị.\n\n## Hướng dẫn chỉnh sửa:\n\n1. **interests**: Danh sách lĩnh vực nghiên cứu quan tâm\n2. **publications**: Danh sách xuất bản\n   - title: Tiêu đề bài báo\n   - journal: Tên tạp chí/hội nghị\n   - year: Năm xuất bản\n   - url: Liên kết đến bài báo\n   - description: Mô tả ngắn\n\nSau khi chỉnh sửa, chạy lệnh `npm run jekyll:update` để cập nhật dữ liệu."
+  },
+  "skills": {
+    "technical": [
+      {
+        "name": "Machine Learning",
+        "level": 95,
+        "category": "AI"
+      },
+      {
+        "name": "Python",
+        "level": 90,
+        "category": "Programming"
+      },
+      {
+        "name": "Data Science",
+        "level": 88,
+        "category": "Data"
+      },
+      {
+        "name": "Deep Learning",
+        "level": 85,
+        "category": "AI"
+      },
+      {
+        "name": "NLP",
+        "level": 82,
+        "category": "AI"
+      },
+      {
+        "name": "Computer Vision",
+        "level": 80,
+        "category": "AI"
+      },
+      {
+        "name": "TensorFlow/PyTorch",
+        "level": 85,
+        "category": "Frameworks"
+      },
+      {
+        "name": "SQL",
+        "level": 75,
+        "category": "Data"
+      },
+      {
+        "name": "Cloud Computing",
+        "level": 78,
+        "category": "Infrastructure"
+      },
+      {
+        "name": "Docker",
+        "level": 72,
+        "category": "DevOps"
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Native"
+      },
+      {
+        "name": "Vietnamese",
+        "level": "Native"
+      },
+      {
+        "name": "French",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Chinese",
+        "level": "Basic"
+      }
+    ],
+    "soft": [
+      "Research",
+      "Technical Writing",
+      "Public Speaking",
+      "Team Leadership",
+      "Project Management",
+      "Problem Solving"
+    ],
+    "content": "# Kỹ năng và chuyên môn\n\nĐây là file chứa thông tin về kỹ năng. Chỉnh sửa phần YAML frontmatter ở trên để cập nhật thông tin hiển thị.\n\n## Hướng dẫn chỉnh sửa:\n\n1. **technical**: Kỹ năng kỹ thuật\n   - name: Tên kỹ năng\n   - level: Mức độ thành thạo (0-100)\n   - category: Danh mục kỹ năng\n2. **languages**: Ngôn ngữ\n   - name: Tên ngôn ngữ\n   - level: Mức độ (Native, Fluent, Intermediate, Basic)\n3. **soft**: Kỹ năng mềm (danh sách)\n\nSau khi chỉnh sửa, chạy lệnh `npm run jekyll:update` để cập nhật dữ liệu."
   }
 }

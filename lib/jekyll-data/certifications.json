@@ -1,0 +1,104 @@
+[
+  {
+    "id": "nlp-specialization copy 2",
+    "name": "AWS Cloud Practitioner Essentials",
+    "platform": "AWS",
+    "issueDate": "2023-03-20",
+    "expiryDate": null,
+    "description": "Four-course specialization covering modern NLP techniques and applications.",
+    "image": "/assets/images/certifications/aws_certi.png",
+    "url": "https://www.coursera.org/account/accomplishments/verify/7WE5MQ21FY8I",
+    "skills": [
+      "NLP",
+      "BERT",
+      "Word Embeddings",
+      "Sentiment Analysis"
+    ],
+    "content": "\nThis specialization consisted of four courses:\n\n1. **Natural Language Processing with Classification and Vector Spaces**\n   - Sentiment analysis\n   - Vector space models\n   - Machine translation\n\n2. **Natural Language Processing with Probabilistic Models**\n   - Part-of-speech tagging\n   - Hidden Markov models\n   - Word embeddings\n\n3. **Natural Language Processing with Sequence Models**\n   - RNNs, LSTMs, GRUs\n   - Named entity recognition\n   - Question answering\n\n4. **Natural Language Processing with Attention Models**\n   - Transformer architecture\n   - BERT and T5 models\n   - Transfer learning"
+  },
+  {
+    "id": "nlp-specialization copy 3",
+    "name": "AWS Cloud Practitioner Essentials",
+    "platform": "AWS",
+    "issueDate": "2023-03-20",
+    "expiryDate": null,
+    "description": "Four-course specialization covering modern NLP techniques and applications.",
+    "image": "/assets/images/certifications/aws_certi.png",
+    "url": "https://www.coursera.org/account/accomplishments/verify/7WE5MQ21FY8I",
+    "skills": [
+      "NLP",
+      "BERT",
+      "Word Embeddings",
+      "Sentiment Analysis"
+    ],
+    "content": "\nThis specialization consisted of four courses:\n\n1. **Natural Language Processing with Classification and Vector Spaces**\n   - Sentiment analysis\n   - Vector space models\n   - Machine translation\n\n2. **Natural Language Processing with Probabilistic Models**\n   - Part-of-speech tagging\n   - Hidden Markov models\n   - Word embeddings\n\n3. **Natural Language Processing with Sequence Models**\n   - RNNs, LSTMs, GRUs\n   - Named entity recognition\n   - Question answering\n\n4. **Natural Language Processing with Attention Models**\n   - Transformer architecture\n   - BERT and T5 models\n   - Transfer learning"
+  },
+  {
+    "id": "nlp-specialization copy",
+    "name": "AWS Cloud Practitioner Essentials",
+    "platform": "AWS",
+    "issueDate": "2023-03-20",
+    "expiryDate": null,
+    "description": "Four-course specialization covering modern NLP techniques and applications.",
+    "image": "/assets/images/certifications/aws_certi.png",
+    "url": "https://www.coursera.org/account/accomplishments/verify/7WE5MQ21FY8I",
+    "skills": [
+      "NLP",
+      "BERT",
+      "Word Embeddings",
+      "Sentiment Analysis"
+    ],
+    "content": "\nThis specialization consisted of four courses:\n\n1. **Natural Language Processing with Classification and Vector Spaces**\n   - Sentiment analysis\n   - Vector space models\n   - Machine translation\n\n2. **Natural Language Processing with Probabilistic Models**\n   - Part-of-speech tagging\n   - Hidden Markov models\n   - Word embeddings\n\n3. **Natural Language Processing with Sequence Models**\n   - RNNs, LSTMs, GRUs\n   - Named entity recognition\n   - Question answering\n\n4. **Natural Language Processing with Attention Models**\n   - Transformer architecture\n   - BERT and T5 models\n   - Transfer learning"
+  },
+  {
+    "id": "nlp-specialization",
+    "name": "AWS Cloud Practitioner Essentials",
+    "platform": "AWS",
+    "issueDate": "2023-03-20",
+    "expiryDate": null,
+    "description": "Four-course specialization covering modern NLP techniques and applications.",
+    "image": "/assets/images/certifications/aws_certi.png",
+    "url": "https://www.coursera.org/account/accomplishments/verify/7WE5MQ21FY8I",
+    "skills": [
+      "NLP",
+      "BERT",
+      "Word Embeddings",
+      "Sentiment Analysis"
+    ],
+    "content": "\nThis specialization consisted of four courses:\n\n1. **Natural Language Processing with Classification and Vector Spaces**\n   - Sentiment analysis\n   - Vector space models\n   - Machine translation\n\n2. **Natural Language Processing with Probabilistic Models**\n   - Part-of-speech tagging\n   - Hidden Markov models\n   - Word embeddings\n\n3. **Natural Language Processing with Sequence Models**\n   - RNNs, LSTMs, GRUs\n   - Named entity recognition\n   - Question answering\n\n4. **Natural Language Processing with Attention Models**\n   - Transformer architecture\n   - BERT and T5 models\n   - Transfer learning"
+  },
+  {
+    "id": "deep-learning",
+    "name": "Deep Learning",
+    "platform": "AI VIETNAM",
+    "issueDate": "2023-01-15",
+    "expiryDate": null,
+    "description": "Comprehensive course covering machine learning algorithms and their applications.",
+    "image": "/assets/images/certifications/machine-learning.jpg",
+    "url": "https://aivnlearning.edu.vn/verification/accomplishments/72751297",
+    "skills": [
+      "Python",
+      "Scikit-Learn",
+      "TensorFlow",
+      "Neural Networks"
+    ],
+    "content": "\nThis certification validates expertise in machine learning fundamentals, including:\n\n- Supervised learning algorithms\n- Unsupervised learning techniques\n- Neural networks and deep learning basics\n- Practical implementation using Python and popular libraries\n\nThe course was taught by Andrew Ng and covered both theoretical concepts and practical applications.\n"
+  },
+  {
+    "id": "genai_llm",
+    "name": "GenAI & LLMs",
+    "platform": "AI VIETNAM",
+    "issueDate": "2023-01-15",
+    "expiryDate": null,
+    "description": "Comprehensive course covering machine learning algorithms and their applications.",
+    "image": "/assets/images/certifications/genai_llms.png",
+    "url": "https://aivnlearning.edu.vn/verification/accomplishments/46155547",
+    "skills": [
+      "Python",
+      "Scikit-Learn",
+      "TensorFlow",
+      "Neural Networks"
+    ],
+    "content": "\nThis certification validates expertise in machine learning fundamentals, including:\n\n- Supervised learning algorithms\n- Unsupervised learning techniques\n- Neural networks and deep learning basics\n- Practical implementation using Python and popular libraries\n\nThe course was taught by Andrew Ng and covered both theoretical concepts and practical applications.\n"
+  }
+]

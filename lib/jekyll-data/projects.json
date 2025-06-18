@@ -1,0 +1,38 @@
+[
+  {
+    "id": "sample-project-1",
+    "title": "AI-Powered Chatbot",
+    "description": "Developed an intelligent chatbot using natural language processing and machine learning to provide customer support.",
+    "image": "/assets/images/projects/chatbot.jpg",
+    "demoUrl": null,
+    "repoUrl": null,
+    "technologies": [
+      "Python",
+      "TensorFlow",
+      "Natural Language Processing",
+      "Flask",
+      "Docker"
+    ],
+    "featured": false,
+    "date": "2023-10-20",
+    "content": "\r\n## AI-Powered Chatbot\r\n\r\nĐây là mô tả chi tiết hơn về dự án chatbot. Nó bao gồm các công nghệ được sử dụng, những thách thức đã vượt qua và kết quả đạt được.\r\n\r\n### Tính năng chính:\r\n\r\n*   Hiểu ngôn ngữ tự nhiên\r\n*   Tích hợp với các nền tảng tin nhắn\r\n*   Khả năng mở rộng\r\n\r\n### Kết quả:\r\n\r\n*   Giảm 30% thời gian phản hồi khách hàng\r\n*   Tăng 20% sự hài lòng của khách hàng "
+  },
+  {
+    "id": "sample-project-1copy",
+    "title": "AI-Powered Chatbot",
+    "description": "Developed an intelligent chatbot using natural language processing and machine learning to provide customer support.",
+    "image": "/assets/images/projects/chatbot.jpg",
+    "demoUrl": null,
+    "repoUrl": null,
+    "technologies": [
+      "Python",
+      "TensorFlow",
+      "Natural Language Processing",
+      "Flask",
+      "Docker"
+    ],
+    "featured": false,
+    "date": "2023-10-20",
+    "content": "\r\n## AI-Powered Chatbot 1 \r\n\r\nĐây là mô tả chi tiết hơn về dự án chatbot. Nó bao gồm các công nghệ được sử dụng, những thách thức đã vượt qua và kết quả đạt được.\r\n\r\n### Tính năng chính:\r\n\r\n*   Hiểu ngôn ngữ tự nhiên\r\n*   Tích hợp với các nền tảng tin nhắn\r\n*   Khả năng mở rộng\r\n\r\n### Kết quả:\r\n\r\n*   Giảm 30% thời gian phản hồi khách hàng\r\n*   Tăng 20% sự hài lòng của khách hàng "
+  }
+]
