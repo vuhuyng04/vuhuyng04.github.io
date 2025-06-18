@@ -31,6 +31,3 @@ This specialization consisted of four courses:
    - Transformer architecture
    - BERT and T5 models
    - Transfer learning
-\`\`\`
-
-## Tạo script để tích hợp Jekyll với Next.js:

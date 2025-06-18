@@ -30,6 +30,3 @@ NLP has numerous applications across various industries:
 - Customer service chatbots
 
 As NLP technology continues to advance, we can expect even more sophisticated applications that bridge the gap between human communication and computer understanding.
-\`\`\`
-
-## Tạo mẫu chứng chỉ Jekyll:

@@ -29,6 +29,3 @@ Several approaches have been proposed to address these challenges:
 - **Unsupervised learning**: Utilizing unlabeled data, which is often more abundant than labeled data.
 
 By combining these approaches and continuing research in this area, we can work towards more inclusive NLP technologies that serve speakers of all languages, regardless of resource availability.
-\`\`\`
-
-## Tạo script để tích hợp Jekyll với Next.js:
