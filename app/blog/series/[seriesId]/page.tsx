@@ -6,7 +6,7 @@ import { getPostsBySeries, getSeriesWithPosts } from "@/lib/blog-utils"
 import { BLOG_SERIES } from "@/lib/blogData"
 import { getContactContent } from "@/lib/profile-utils"
 import { Badge } from "@/components/ui/badge"
-import { BookOpen, Clock, Target, Users } from "lucide-react"
+import { BookOpen, Clock, Target as TargetIcon, Users } from "lucide-react"
 import type { Metadata } from "next"
 
 interface SeriesPageParams {
@@ -91,7 +91,7 @@ export default async function SeriesPage({ params }: SeriesPageParams) {
                 <span>{series.estimatedDuration}</span>
               </div>
               <div className="flex items-center justify-center space-x-2">
-                <Target className="h-5 w-5" />
+                <TargetIcon className="h-5 w-5" />
                 <span>{series.level} Level</span>
               </div>
             </div>

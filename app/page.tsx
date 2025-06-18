@@ -1,5 +1,5 @@
 import Navbar from "@/components/navbar"
-// import Hero from "@/components/hero"
+import { dynamic } from "next/dynamic"
 import AboutSection from "@/components/about-section"
 import Footer from "@/components/footer"
 import RecentPosts from "@/components/recent-posts"
@@ -10,7 +10,7 @@ import { getAllPosts } from "@/lib/blog-utils"
 import { getCertifications } from "@/lib/certification-utils"
 import { getBasicInfo, getSkills, getEducation, getExperience, getResearchInterests, getAboutContent, getContactContent } from "@/lib/profile-utils"
 
-// const Hero = dynamic(() => import("@/components/hero"), { ssr: false })
+const Hero = dynamic(() => import("@/components/hero"), { ssr: false })
 
 export default async function Home() {
   const posts = await getAllPosts()

@@ -7,7 +7,7 @@ import BlogSeriesGrid from "@/components/blog-series-grid"
 import { Post, BlogSeries } from "@/lib/blogData"
 import { useTheme } from "next-themes"
 import { Input } from "@/components/ui/input"
-import { Search, Filter, Calendar, Tag, User, BookOpen } from "lucide-react"
+import { Search, Filter, Calendar, Tag, User, BookOpen, Target as TargetIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import {
@@ -259,7 +259,7 @@ export default function BlogClientPage({ posts, series }: BlogClientPageProps) {
                 </div>
 
                 <div className="flex items-center space-x-2">
-                  <Target className="h-4 w-4 text-gray-500" />
+                  <TargetIcon className="h-4 w-4 text-gray-500" />
                   <Select value={selectedLevel} onValueChange={setSelectedLevel}>
                     <SelectTrigger className="w-40">
                       <SelectValue placeholder="Level" />
