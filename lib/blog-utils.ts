@@ -1,11 +1,11 @@
 import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
-import { Post } from "./blogPostsData"
+import { Post, BlogSeries, BLOG_SERIES } from "./blogData"
 
 const postsDirectory = path.join(process.cwd(), '_posts')
 
-// Hàm này trả về tất cả các bài viết
+// Enhanced function to get all posts with series organization
 export async function getAllPosts(): Promise<Post[]> {
   if (!fs.existsSync(postsDirectory)) {
     console.error(`Posts directory not found: ${postsDirectory}`);
@@ -14,18 +14,13 @@ export async function getAllPosts(): Promise<Post[]> {
   const fileNames = fs.readdirSync(postsDirectory)
   
   const allPostsData = fileNames.map((fileName) => {
-    // Remove ".md" from file name to get slug
     const slug = fileName.replace(/\.md$/, '')
-
-    // Read markdown file as string
     const fullPath = path.join(postsDirectory, fileName)
     const fileContents = fs.readFileSync(fullPath, 'utf8')
-
-    // Use gray-matter to parse the post metadata section
     const matterResult = matter(fileContents)
 
     let processedCoverImage = matterResult.data.coverImage;
-    const defaultPlaceholderImage = "/placeholder.png"; // Use the generic placeholder.png
+    const defaultPlaceholderImage = "/placeholder.png";
 
     if (processedCoverImage && typeof processedCoverImage === 'string' && processedCoverImage.startsWith('/')) {
       const publicPath = path.join(process.cwd(), 'public', processedCoverImage);
@@ -36,9 +31,7 @@ export async function getAllPosts(): Promise<Post[]> {
     } else {
       processedCoverImage = defaultPlaceholderImage;
     }
-    console.log(`Post ${slug}: processed cover image URL: ${processedCoverImage}`);
 
-    // Combine the data with the slug
     return {
       slug,
       title: matterResult.data.title,
@@ -47,12 +40,18 @@ export async function getAllPosts(): Promise<Post[]> {
       coverImage: processedCoverImage,
       readingTime: matterResult.data.readingTime,
       tags: Array.isArray(matterResult.data.tags) ? matterResult.data.tags : [],
+      series: matterResult.data.series,
+      seriesOrder: matterResult.data.seriesOrder,
+      level: matterResult.data.level || 'beginner',
+      prerequisites: matterResult.data.prerequisites || [],
+      learningObjectives: matterResult.data.learningObjectives || [],
+      mathFormulas: matterResult.data.mathFormulas || false,
+      codeExamples: matterResult.data.codeExamples || false,
       content: matterResult.content,
       ...(matterResult.data.author && { author: matterResult.data.author }),
     } as Post
   })
 
-  // Sort posts by date in descending order
   return allPostsData.sort((a, b) => {
     if (a.date < b.date) {
       return 1
@@ -62,7 +61,47 @@ export async function getAllPosts(): Promise<Post[]> {
   })
 }
 
-// Hàm này sẽ lấy một bài viết cụ thể dựa trên slug
+// Get posts by series
+export async function getPostsBySeries(seriesId: string): Promise<Post[]> {
+  const allPosts = await getAllPosts()
+  return allPosts
+    .filter(post => post.series === seriesId)
+    .sort((a, b) => (a.seriesOrder || 0) - (b.seriesOrder || 0))
+}
+
+// Get series with posts
+export async function getSeriesWithPosts(): Promise<BlogSeries[]> {
+  const allPosts = await getAllPosts()
+  
+  return BLOG_SERIES.map(series => ({
+    ...series,
+    posts: allPosts
+      .filter(post => post.series === series.id)
+      .sort((a, b) => (a.seriesOrder || 0) - (b.seriesOrder || 0))
+  }))
+}
+
+// Get next and previous posts in series
+export async function getSeriesNavigation(currentPost: Post): Promise<{
+  previous: Post | null
+  next: Post | null
+  seriesInfo: BlogSeries | null
+}> {
+  if (!currentPost.series) {
+    return { previous: null, next: null, seriesInfo: null }
+  }
+
+  const seriesPosts = await getPostsBySeries(currentPost.series)
+  const currentIndex = seriesPosts.findIndex(post => post.slug === currentPost.slug)
+  const seriesInfo = BLOG_SERIES.find(s => s.id === currentPost.series) || null
+
+  return {
+    previous: currentIndex > 0 ? seriesPosts[currentIndex - 1] : null,
+    next: currentIndex < seriesPosts.length - 1 ? seriesPosts[currentIndex + 1] : null,
+    seriesInfo
+  }
+}
+
 export async function getPostBySlug(slug: string): Promise<Post | null> {
   const decodedSlug = decodeURIComponent(slug);
   const fullPath = path.join(postsDirectory, `${decodedSlug}.md`)
@@ -71,7 +110,7 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
     const matterResult = matter(fileContents)
 
     let processedCoverImage = matterResult.data.coverImage;
-    const defaultPlaceholderImage = "/placeholder.png"; // Use the generic placeholder.png
+    const defaultPlaceholderImage = "/placeholder.png";
 
     if (processedCoverImage && typeof processedCoverImage === 'string' && processedCoverImage.startsWith('/')) {
       const publicPath = path.join(process.cwd(), 'public', processedCoverImage);
@@ -82,7 +121,6 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
     } else {
       processedCoverImage = defaultPlaceholderImage;
     }
-    console.log(`Post ${decodedSlug}: processed cover image URL: ${processedCoverImage}`);
 
     return {
       slug: decodedSlug,
@@ -92,6 +130,13 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
       coverImage: processedCoverImage,
       readingTime: matterResult.data.readingTime,
       tags: Array.isArray(matterResult.data.tags) ? matterResult.data.tags : [],
+      series: matterResult.data.series,
+      seriesOrder: matterResult.data.seriesOrder,
+      level: matterResult.data.level || 'beginner',
+      prerequisites: matterResult.data.prerequisites || [],
+      learningObjectives: matterResult.data.learningObjectives || [],
+      mathFormulas: matterResult.data.mathFormulas || false,
+      codeExamples: matterResult.data.codeExamples || false,
       content: matterResult.content,
       ...(matterResult.data.author && { author: matterResult.data.author }),
     } as Post
