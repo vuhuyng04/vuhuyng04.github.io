@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "next build && gh-pages -d out -r https://github.com/vuhuyng04/vuhuyng04.github.io.git"
+    "deploy": "next build && gh-pages -d out -r https://github.com/vuhuyng04/vuhuyng04.github.io.git",
+    "jekyll:update": "node scripts/jekyll-integration.js"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "latest",
