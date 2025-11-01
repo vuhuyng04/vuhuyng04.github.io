@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Fashion MNIST Predictor</title>
+    <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
+</head>
+<body>
+    <h1>Fashion MNIST Predictor</h1>
+    
+    <input type="file" id="fileInput" accept="image/*">
+    <br><br>
+    
+    <canvas id="canvas" width="280" height="280"></canvas>
+    
+    <h3>Result: <span id="result"></span></h3>
+
+    <script>
+        let session = null;
+        let labels = [];
+
+        // Load labels
+        fetch('labels.json')
+            .then(res => res.json())
+            .then(data => labels = data);
+
+        // Load model
+        ort.InferenceSession.create('fashion_cnn.onnx')
+            .then(s => session = s);
+
+        // Handle file upload
+        document.getElementById('fileInput').addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            const reader = new FileReader();
+            
+            reader.onload = (event) => {
+                const img = new Image();
+                img.onload = () => predict(img);
+                img.src = event.target.result;
+            };
+            
+            reader.readAsDataURL(file);
+        });
+
+        async function predict(img) {
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Draw original
+            ctx.drawImage(img, 0, 0, 280, 280);
+            
+            // Create 28x28 canvas
+            const small = document.createElement('canvas');
+            small.width = 28;
+            small.height = 28;
+            const smallCtx = small.getContext('2d');
+            smallCtx.drawImage(img, 0, 0, 28, 28);
+            
+            // Get pixels and convert to grayscale
+            const imageData = smallCtx.getImageData(0, 0, 28, 28);
+            const data = imageData.data;
+            const input = new Float32Array(28 * 28);
+            
+            for (let i = 0; i < 28 * 28; i++) {
+                const gray = (data[i*4] + data[i*4+1] + data[i*4+2]) / 3;
+                input[i] = (gray / 255 - 0.5) / 0.5;
+            }
+            
+            // Run model
+            const tensor = new ort.Tensor('float32', input, [1, 1, 28, 28]);
+            const results = await session.run({ input: tensor });
+            const output = results.output.data;
+            
+            // Get prediction
+            const maxIdx = output.indexOf(Math.max(...output));
+            document.getElementById('result').textContent = labels[maxIdx];
+        }
+    </script>
+</body>
+</html>
