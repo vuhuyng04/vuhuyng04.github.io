@@ -3,285 +3,270 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nguyen Vu Huy — Data Scientist</title>
-<meta name="description" content="Nguyen Vu Huy — Data Scientist / AI Engineer. B.S. in Artificial Intelligence, FPT University. NLP, RAG, Machine Learning.">
+<title>Nguyen Vu Huy</title>
+<meta name="description" content="Nguyen Vu Huy — Data Scientist and AI Engineer. B.S. in Artificial Intelligence, FPT University. Research and applied work in NLP, retrieval-augmented generation, and machine learning.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0b0f14;
-    --surface: #111823;
-    --border: #1e2936;
-    --text: #d7dee8;
-    --text-dim: #8b98a9;
-    --accent: #4cc2ff;
-    --accent-dim: rgba(76, 194, 255, 0.12);
+    --text: #202124;
+    --muted: #5f6368;
+    --line: #dadce0;
+    --link: #1a56c4;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
   body {
-    font-family: "Inter", system-ui, -apple-system, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.65;
+    font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
     font-size: 16px;
+    line-height: 1.7;
+    color: var(--text);
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
   }
-  a { color: var(--accent); text-decoration: none; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 72px 28px 96px; }
+
+  a { color: var(--link); text-decoration: none; }
   a:hover { text-decoration: underline; }
-  .container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
 
-  /* Nav */
-  nav {
-    position: sticky; top: 0; z-index: 10;
-    background: rgba(11, 15, 20, 0.85);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border);
-  }
-  nav .container {
-    display: flex; align-items: center; justify-content: space-between;
-    height: 56px;
-  }
-  nav .brand { font-weight: 700; color: var(--text); font-size: 15px; }
-  nav .links { display: flex; gap: 20px; }
-  nav .links a { color: var(--text-dim); font-size: 14px; font-weight: 500; }
-  nav .links a:hover { color: var(--accent); text-decoration: none; }
-
-  /* Hero */
-  header { padding: 88px 0 64px; }
-  .kicker {
-    font-family: "JetBrains Mono", monospace;
-    color: var(--accent); font-size: 14px; margin-bottom: 16px;
-  }
-  h1 { font-size: 44px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; }
-  .tagline { font-size: 20px; color: var(--text-dim); margin-top: 12px; font-weight: 500; }
-  .intro { margin-top: 20px; color: var(--text-dim); max-width: 620px; }
-  .intro strong { color: var(--text); font-weight: 600; }
-  .hero-links { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; }
-  .btn {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 9px 18px; border-radius: 8px; font-size: 14px; font-weight: 600;
-    border: 1px solid var(--border); color: var(--text);
-    transition: border-color .15s, background .15s;
-  }
-  .btn:hover { border-color: var(--accent); text-decoration: none; background: var(--accent-dim); }
-  .btn.primary { background: var(--accent); color: #0b0f14; border-color: var(--accent); }
-  .btn.primary:hover { opacity: .9; }
+  /* Header */
+  h1 { font-size: 33px; font-weight: 400; letter-spacing: -0.3px; }
+  .title { font-size: 17px; color: var(--muted); margin-top: 6px; }
+  .contact { margin-top: 14px; font-size: 15px; color: var(--muted); }
+  .contact a { margin-right: 4px; }
+  .contact .sep { margin: 0 6px; color: var(--line); }
+  .bio { margin-top: 26px; }
+  .bio p + p { margin-top: 14px; }
 
   /* Sections */
-  section { padding: 48px 0; border-top: 1px solid var(--border); }
+  section { margin-top: 52px; }
   h2 {
-    font-size: 22px; font-weight: 700; margin-bottom: 28px;
-    display: flex; align-items: center; gap: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 22px;
   }
-  h2 .num { font-family: "JetBrains Mono", monospace; color: var(--accent); font-size: 15px; font-weight: 500; }
 
-  /* Experience */
-  .item { margin-bottom: 32px; }
-  .item:last-child { margin-bottom: 0; }
-  .item-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
-  .item-title { font-weight: 600; font-size: 16.5px; }
-  .item-title .role { color: var(--text-dim); font-weight: 500; }
-  .item-date { font-family: "JetBrains Mono", monospace; font-size: 13px; color: var(--text-dim); white-space: nowrap; }
-  .item ul { margin: 10px 0 0 18px; color: var(--text-dim); font-size: 15px; }
-  .item ul li { margin-bottom: 6px; }
-  .item ul li::marker { color: var(--accent); }
-
-  /* Projects */
-  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .card {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: 12px; padding: 22px;
-    display: flex; flex-direction: column; gap: 10px;
-    transition: border-color .15s, transform .15s;
+  /* Generic entry */
+  .entry { margin-bottom: 26px; }
+  .entry:last-child { margin-bottom: 0; }
+  .entry-head {
+    display: flex; justify-content: space-between;
+    align-items: baseline; gap: 20px; flex-wrap: wrap;
   }
-  .card:hover { border-color: var(--accent); transform: translateY(-2px); }
-  .card h3 { font-size: 16px; font-weight: 600; }
-  .card h3 a { color: var(--text); }
-  .card h3 a:hover { color: var(--accent); text-decoration: none; }
-  .card p { font-size: 14px; color: var(--text-dim); flex: 1; }
-  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
-  .tag {
-    font-family: "JetBrains Mono", monospace; font-size: 11.5px;
-    color: var(--accent); background: var(--accent-dim);
-    padding: 3px 9px; border-radius: 99px;
-  }
+  .entry-name { font-weight: 500; }
+  .entry-meta { font-size: 14px; color: var(--muted); white-space: nowrap; }
+  .entry-sub { color: var(--muted); font-size: 15px; }
+  .entry p { margin-top: 6px; color: var(--muted); font-size: 15.5px; }
+  .entry ul { margin: 8px 0 0 20px; color: var(--muted); font-size: 15.5px; }
+  .entry ul li { margin-bottom: 4px; }
 
   /* Publications */
-  .pub { padding: 16px 0; border-bottom: 1px solid var(--border); font-size: 15px; }
-  .pub:last-child { border-bottom: none; }
-  .pub .venue { font-family: "JetBrains Mono", monospace; font-size: 12.5px; color: var(--accent); }
-  .pub .authors { color: var(--text-dim); font-size: 14px; }
+  ol.pubs { list-style: none; counter-reset: pub; }
+  ol.pubs li {
+    position: relative; padding-left: 30px; margin-bottom: 22px;
+  }
+  ol.pubs li:last-child { margin-bottom: 0; }
+  ol.pubs li::before {
+    counter-increment: pub; content: "[" counter(pub) "]";
+    position: absolute; left: 0; top: 0;
+    color: var(--muted); font-size: 14.5px;
+  }
+  .pub-title { font-weight: 500; }
+  .pub-meta { color: var(--muted); font-size: 15px; }
 
   /* Skills */
-  .skills { display: grid; grid-template-columns: 160px 1fr; gap: 10px 20px; font-size: 15px; }
-  .skills dt { color: var(--text); font-weight: 600; }
-  .skills dd { color: var(--text-dim); }
+  .skills { font-size: 15.5px; }
+  .skills div { margin-bottom: 8px; }
+  .skills div:last-child { margin-bottom: 0; }
+  .skills b { font-weight: 500; }
+  .skills span { color: var(--muted); }
 
-  /* Certs */
-  .certs { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .certs li {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: 8px; padding: 12px 16px; font-size: 14px;
+  /* Certifications */
+  ul.certs { list-style: none; font-size: 15.5px; }
+  ul.certs li { margin-bottom: 7px; }
+  ul.certs li:last-child { margin-bottom: 0; }
+
+  footer {
+    margin-top: 64px; padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-size: 13.5px; color: var(--muted);
   }
-  .certs li a { color: var(--text); }
-  .certs li a:hover { color: var(--accent); text-decoration: none; }
 
-  /* Footer */
-  footer { border-top: 1px solid var(--border); padding: 48px 0 64px; text-align: center; }
-  footer .contact { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
-  footer p { color: var(--text-dim); font-size: 14px; }
-  footer .foot-links { margin-top: 16px; display: flex; justify-content: center; gap: 20px; font-size: 14px; }
-
-  @media (max-width: 640px) {
-    h1 { font-size: 32px; }
-    .tagline { font-size: 17px; }
-    .grid, .certs { grid-template-columns: 1fr; }
-    .skills { grid-template-columns: 1fr; gap: 2px; }
-    .skills dd { margin-bottom: 10px; }
+  @media (max-width: 600px) {
+    .wrap { padding: 48px 22px 72px; }
+    h1 { font-size: 28px; }
+    .entry-meta { white-space: normal; }
   }
 </style>
 </head>
 <body>
+<div class="wrap">
 
-<nav>
-  <div class="container">
-    <span class="brand">vuhuy<span style="color:var(--accent)">.</span></span>
-    <div class="links">
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#publications">Publications</a>
-      <a href="#skills">Skills</a>
-    </div>
-  </div>
-</nav>
-
-<header class="container">
-  <p class="kicker">Hi, my name is</p>
-  <h1>Nguyen Vu Huy</h1>
-  <p class="tagline">Data Scientist · AI Engineer</p>
-  <p class="intro">
-    B.S. in Artificial Intelligence at <strong>FPT University</strong> (GPA 8.05).
-    I work on <strong>NLP</strong>, <strong>Retrieval-Augmented Generation</strong>, and
-    <strong>machine learning</strong> — turning data into models that ship.
-    First author of a peer-reviewed paper on low-resource machine translation.
-  </p>
-  <div class="hero-links">
-    <a class="btn primary" href="mailto:nguyenvuhuyofficial@gmail.com">Get in touch</a>
-    <a class="btn" href="https://github.com/vuhuyng04" target="_blank" rel="noopener">GitHub</a>
-    <a class="btn" href="https://www.linkedin.com/in/vuhuyng" target="_blank" rel="noopener">LinkedIn</a>
-  </div>
-</header>
-
-<section id="experience" class="container">
-  <h2><span class="num">01.</span> Experience</h2>
-
-  <div class="item">
-    <div class="item-head">
-      <span class="item-title">TPBank <span class="role">— Data Science Collaborator</span></span>
-      <span class="item-date">Mar 2026 – Jun 2026</span>
-    </div>
-    <ul>
-      <li>Queried and explored the UAT database with SQL to understand banking data structures.</li>
-      <li>Applied the CRISP-DM methodology to real-world data science workflows in banking.</li>
-      <li>Worked through data profiling, data quality assessment, and preprocessing workflows with mentor-led walkthroughs of production project codebases.</li>
-    </ul>
-  </div>
-
-  <div class="item">
-    <div class="item-head">
-      <span class="item-title">FPT Software <span class="role">— Student Intern (On-the-Job Training)</span></span>
-      <span class="item-date">May 2025 – Sep 2025</span>
-    </div>
-    <ul>
-      <li>Built a Retrieval-Augmented Generation chatbot with Python, Qdrant vector database, and FastAPI for knowledge retrieval.</li>
-      <li>Contributed to a Java-based movie ticket booking web application in an Agile Scrum environment.</li>
-    </ul>
-  </div>
-
-  <div class="item">
-    <div class="item-head">
-      <span class="item-title">AI VIET NAM <span class="role">— AIO2024 Cohort</span> <a href="https://lms.aivietnam.edu.vn/verification/accomplishments/72751297" target="_blank" rel="noopener" style="font-size:13px">[certificate]</a></span>
-      <span class="item-date">Jun 2024 – Jun 2025</span>
-    </div>
-    <ul>
-      <li>Completed a one-year intensive residency of 300+ sessions: math for AI, machine learning, deep learning, computer vision, NLP, and generative AI / LLMs.</li>
-      <li>Contributed to the AI VIET NAM Research Group; co-authored peer-reviewed papers in machine translation and object detection.</li>
-    </ul>
-  </div>
-</section>
-
-<section id="projects" class="container">
-  <h2><span class="num">02.</span> Selected Projects</h2>
-  <div class="grid">
-    <div class="card">
-      <h3><a href="https://github.com/vuhuyng04/RAG_Project" target="_blank" rel="noopener">RAG Chatbot for E-commerce Q&amp;A ↗</a></h3>
-      <p>Retrieval-augmented chatbot answering product queries for an online store — multilingual embeddings, cosine-similarity semantic search over Qdrant, and Gemini 2.0 Flash for fast, context-aware answers.</p>
-      <div class="tags"><span class="tag">RAG</span><span class="tag">Qdrant</span><span class="tag">Gemini</span><span class="tag">FastAPI</span></div>
-    </div>
-    <div class="card">
-      <h3><a href="https://github.com/vuhuyng04/craw_data_VietnamNews_and_classification" target="_blank" rel="noopener">Vietnam News Crawling &amp; Classification ↗</a></h3>
-      <p>End-to-end Vietnamese-news NLP pipeline: scraped and cleaned thousands of articles, engineered TF-IDF features, trained a multi-class XGBoost classifier, and deployed it as a Flask web app for real-time inference.</p>
-      <div class="tags"><span class="tag">Scraping</span><span class="tag">XGBoost</span><span class="tag">Flask</span></div>
-    </div>
-    <div class="card">
-      <h3><a href="https://github.com/vuhuyng04/finetune-bert-ntc-scv-sentiment" target="_blank" rel="noopener">BERT for Vietnamese Sentiment ↗</a></h3>
-      <p>Fine-tuned BERT on the NTC-SCV dataset for Vietnamese sentiment classification, with the full training pipeline published on GitHub.</p>
-      <div class="tags"><span class="tag">BERT</span><span class="tag">PyTorch</span><span class="tag">Transformers</span></div>
-    </div>
-    <div class="card">
-      <h3><a href="https://github.com/vuhuyng04" target="_blank" rel="noopener">More on GitHub ↗</a></h3>
-      <p>Data pipelines, MLOps experiments, LLM fine-tuning, and coursework — explore the rest of my repositories.</p>
-      <div class="tags"><span class="tag">MLOps</span><span class="tag">Data Engineering</span><span class="tag">LLMs</span></div>
-    </div>
-  </div>
-</section>
-
-<section id="publications" class="container">
-  <h2><span class="num">03.</span> Publications</h2>
-  <div class="pub">
-    <span class="venue">FETC 2025 · ISBN 978-632-609-823-5</span><br>
-    <a href="https://science.fpt.edu.vn/FETC/AcceptedPaper/PaperDetail?id=7c767f79-d643-43ab-f415-08ddeee6c255" target="_blank" rel="noopener">Low-Resource English–Vietnamese Translation: A Comparative Study of mBART-50 and NLLB</a>
-    <div class="authors">First author</div>
-  </div>
-  <div class="pub">
-    <span class="venue">CSoNet 2025</span><br>
-    <a href="https://csonet-conf.github.io/csonet25/index.php/accepted-papers/index.html" target="_blank" rel="noopener">Attention-Enhanced YOLO-Nano for Adverse Weather Object Detection</a>
-    <div class="authors">Third author</div>
-  </div>
-</section>
-
-<section id="skills" class="container">
-  <h2><span class="num">04.</span> Technical Skills</h2>
-  <dl class="skills">
-    <dt>Programming</dt><dd>Python, SQL</dd>
-    <dt>ML / DL</dt><dd>PyTorch, Scikit-learn, Hugging Face Transformers</dd>
-    <dt>GenAI / NLP</dt><dd>Retrieval-Augmented Generation, prompt engineering, AI APIs, Qdrant</dd>
-    <dt>Data &amp; Tools</dt><dd>NumPy, Pandas, Matplotlib, Seaborn, AWS, Docker, Git/GitHub, MLflow, Feast, FastAPI</dd>
-  </dl>
-</section>
-
-<section id="certifications" class="container">
-  <h2><span class="num">05.</span> Certifications</h2>
-  <ul class="certs">
-    <li><a href="https://www.coursera.org/account/accomplishments/professional-cert/8XIWN5631DMR" target="_blank" rel="noopener">IBM Data Science Professional Certificate</a></li>
-    <li><a href="https://www.coursera.org/account/accomplishments/certificate/7WE5MQ21FY8I" target="_blank" rel="noopener">AWS Cloud Practitioner Essentials</a></li>
-    <li><a href="https://www.coursera.org/account/accomplishments/specialization/LO035J80BA7R" target="_blank" rel="noopener">Deep Learning Specialization (Andrew Ng)</a></li>
-    <li><a href="https://www.coursera.org/account/accomplishments/specialization/O7766J56J2YB" target="_blank" rel="noopener">Project Management Principles and Practices</a></li>
-  </ul>
-</section>
-
-<footer>
-  <div class="container">
-    <p class="contact"><a href="mailto:nguyenvuhuyofficial@gmail.com">nguyenvuhuyofficial@gmail.com</a></p>
-    <p>(+84) 379 934 607 · Vietnam</p>
-    <div class="foot-links">
+  <header>
+    <h1>Nguyen Vu Huy</h1>
+    <div class="title">Data Scientist · AI Engineer</div>
+    <div class="contact">
+      <a href="mailto:nguyenvuhuyofficial@gmail.com">nguyenvuhuyofficial@gmail.com</a>
+      <span class="sep">·</span>
       <a href="https://github.com/vuhuyng04" target="_blank" rel="noopener">GitHub</a>
+      <span class="sep">·</span>
       <a href="https://www.linkedin.com/in/vuhuyng" target="_blank" rel="noopener">LinkedIn</a>
     </div>
-    <p style="margin-top:24px; font-size:12.5px;">© 2026 Nguyen Vu Huy</p>
-  </div>
-</footer>
 
+    <div class="bio">
+      <p>
+        I am a data scientist and AI engineer working on natural language processing,
+        retrieval-augmented generation, and applied machine learning. My work spans the
+        full path from data to a deployed model: exploration and feature engineering,
+        training and evaluation, and serving the result behind an API.
+      </p>
+      <p>
+        I hold a B.S. in Artificial Intelligence from FPT University and have published
+        peer-reviewed work on low-resource machine translation and object detection.
+      </p>
+    </div>
+  </header>
+
+  <section id="experience">
+    <h2>Experience</h2>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-name">TPBank</span>
+        <span class="entry-meta">Mar 2026 – Jun 2026</span>
+      </div>
+      <div class="entry-sub">Data Science Collaborator · Hanoi, Vietnam</div>
+      <ul>
+        <li>Queried and explored the UAT database with SQL to understand banking data structures.</li>
+        <li>Applied the CRISP-DM methodology to real-world data science workflows in banking.</li>
+        <li>Worked through data profiling, data quality assessment, and preprocessing on prior production codebases.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-name">FPT Software</span>
+        <span class="entry-meta">May 2025 – Sep 2025</span>
+      </div>
+      <div class="entry-sub">Student Intern, On-the-Job Training · Can Tho, Vietnam</div>
+      <ul>
+        <li>Built a retrieval-augmented generation chatbot with Python, Qdrant, and FastAPI for knowledge retrieval.</li>
+        <li>Contributed to a Java-based movie ticket booking application in an Agile Scrum team.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-name">AI VIET NAM</span>
+        <span class="entry-meta">Jun 2024 – Jun 2025</span>
+      </div>
+      <div class="entry-sub">AIO2024 Cohort · Remote &nbsp;<a href="https://lms.aivietnam.edu.vn/verification/accomplishments/72751297" target="_blank" rel="noopener">certificate</a></div>
+      <ul>
+        <li>Completed a one-year residency of 300+ sessions covering mathematics for AI, machine learning, deep learning, computer vision, NLP, and generative AI.</li>
+        <li>Contributed to the AI VIET NAM Research Group and co-authored the papers listed below.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="publications">
+    <h2>Publications</h2>
+    <ol class="pubs">
+      <li>
+        <div class="pub-title">Low-Resource English–Vietnamese Translation: A Comparative Study of mBART-50 and NLLB</div>
+        <div class="pub-meta">
+          First author · FETC 2025 · ISBN 978-632-609-823-5 ·
+          <a href="https://science.fpt.edu.vn/FETC/AcceptedPaper/PaperDetail?id=7c767f79-d643-43ab-f415-08ddeee6c255" target="_blank" rel="noopener">paper</a>
+        </div>
+      </li>
+      <li>
+        <div class="pub-title">Attention-Enhanced YOLO-Nano for Adverse Weather Object Detection</div>
+        <div class="pub-meta">
+          Third author · CSoNet 2025 ·
+          <a href="https://csonet-conf.github.io/csonet25/index.php/accepted-papers/index.html" target="_blank" rel="noopener">accepted papers</a>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section id="projects">
+    <h2>Selected Projects</h2>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-name">RAG Chatbot for E-commerce Product Q&amp;A</span>
+        <span class="entry-meta"><a href="https://github.com/vuhuyng04/RAG_Project" target="_blank" rel="noopener">code</a> · 2025</span>
+      </div>
+      <p>
+        A retrieval-augmented chatbot that answers product questions for an online store. Uses
+        gte-multilingual-base embeddings, a Qdrant vector database with cosine-similarity semantic
+        search, and Gemini 2.0 Flash for generation.
+      </p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-name">Vietnam News Crawling and Text Classification</span>
+        <span class="entry-meta"><a href="https://github.com/vuhuyng04/craw_data_VietnamNews_and_classification" target="_blank" rel="noopener">code</a></span>
+      </div>
+      <p>
+        An end-to-end Vietnamese news pipeline: scraped and cleaned thousands of articles into a
+        structured dataset, engineered TF-IDF features, trained a multi-class XGBoost classifier
+        evaluated on accuracy and F1, and deployed it as a Flask application for real-time inference.
+      </p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-name">Fine-tuned BERT for Vietnamese Sentiment Classification</span>
+        <span class="entry-meta"><a href="https://github.com/vuhuyng04/finetune-bert-ntc-scv-sentiment" target="_blank" rel="noopener">code</a> · 2024</span>
+      </div>
+      <p>
+        Fine-tuned BERT on the NTC-SCV dataset for Vietnamese sentiment analysis, with the full
+        training pipeline published for reproduction.
+      </p>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-name">FPT University</span>
+        <span class="entry-meta"><a href="https://drive.google.com/file/d/1ISi5sSmZS9yO7TskHJG0TgAU2Fr4xx_-/view" target="_blank" rel="noopener">transcript</a></span>
+      </div>
+      <div class="entry-sub">B.S. in Artificial Intelligence · GPA 8.05</div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <div class="skills">
+      <div><b>Programming</b> &nbsp;<span>Python, SQL</span></div>
+      <div><b>Machine learning</b> &nbsp;<span>PyTorch, scikit-learn, Hugging Face Transformers</span></div>
+      <div><b>Generative AI and NLP</b> &nbsp;<span>retrieval-augmented generation, prompt engineering, model APIs, Qdrant</span></div>
+      <div><b>Data and tooling</b> &nbsp;<span>NumPy, Pandas, Matplotlib, Seaborn, AWS, Docker, Git, MLflow, Feast, FastAPI</span></div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <ul class="certs">
+      <li><a href="https://www.coursera.org/account/accomplishments/professional-cert/8XIWN5631DMR" target="_blank" rel="noopener">IBM Data Science Professional Certificate</a></li>
+      <li><a href="https://www.coursera.org/account/accomplishments/certificate/7WE5MQ21FY8I" target="_blank" rel="noopener">AWS Cloud Practitioner Essentials</a></li>
+      <li><a href="https://www.coursera.org/account/accomplishments/specialization/LO035J80BA7R" target="_blank" rel="noopener">Deep Learning Specialization</a></li>
+      <li><a href="https://www.coursera.org/account/accomplishments/specialization/O7766J56J2YB" target="_blank" rel="noopener">Project Management Principles and Practices</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    Nguyen Vu Huy · (+84) 379 934 607 · Vietnam
+  </footer>
+
+</div>
 </body>
 </html>
