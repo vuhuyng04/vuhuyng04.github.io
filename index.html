@@ -1,80 +1,287 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Fashion MNIST Predictor</title>
-    <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nguyen Vu Huy — Data Scientist</title>
+<meta name="description" content="Nguyen Vu Huy — Data Scientist / AI Engineer. B.S. in Artificial Intelligence, FPT University. NLP, RAG, Machine Learning.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0f14;
+    --surface: #111823;
+    --border: #1e2936;
+    --text: #d7dee8;
+    --text-dim: #8b98a9;
+    --accent: #4cc2ff;
+    --accent-dim: rgba(76, 194, 255, 0.12);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    font-size: 16px;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+
+  /* Nav */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(11, 15, 20, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  nav .container {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 56px;
+  }
+  nav .brand { font-weight: 700; color: var(--text); font-size: 15px; }
+  nav .links { display: flex; gap: 20px; }
+  nav .links a { color: var(--text-dim); font-size: 14px; font-weight: 500; }
+  nav .links a:hover { color: var(--accent); text-decoration: none; }
+
+  /* Hero */
+  header { padding: 88px 0 64px; }
+  .kicker {
+    font-family: "JetBrains Mono", monospace;
+    color: var(--accent); font-size: 14px; margin-bottom: 16px;
+  }
+  h1 { font-size: 44px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; }
+  .tagline { font-size: 20px; color: var(--text-dim); margin-top: 12px; font-weight: 500; }
+  .intro { margin-top: 20px; color: var(--text-dim); max-width: 620px; }
+  .intro strong { color: var(--text); font-weight: 600; }
+  .hero-links { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 9px 18px; border-radius: 8px; font-size: 14px; font-weight: 600;
+    border: 1px solid var(--border); color: var(--text);
+    transition: border-color .15s, background .15s;
+  }
+  .btn:hover { border-color: var(--accent); text-decoration: none; background: var(--accent-dim); }
+  .btn.primary { background: var(--accent); color: #0b0f14; border-color: var(--accent); }
+  .btn.primary:hover { opacity: .9; }
+
+  /* Sections */
+  section { padding: 48px 0; border-top: 1px solid var(--border); }
+  h2 {
+    font-size: 22px; font-weight: 700; margin-bottom: 28px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  h2 .num { font-family: "JetBrains Mono", monospace; color: var(--accent); font-size: 15px; font-weight: 500; }
+
+  /* Experience */
+  .item { margin-bottom: 32px; }
+  .item:last-child { margin-bottom: 0; }
+  .item-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+  .item-title { font-weight: 600; font-size: 16.5px; }
+  .item-title .role { color: var(--text-dim); font-weight: 500; }
+  .item-date { font-family: "JetBrains Mono", monospace; font-size: 13px; color: var(--text-dim); white-space: nowrap; }
+  .item ul { margin: 10px 0 0 18px; color: var(--text-dim); font-size: 15px; }
+  .item ul li { margin-bottom: 6px; }
+  .item ul li::marker { color: var(--accent); }
+
+  /* Projects */
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 12px; padding: 22px;
+    display: flex; flex-direction: column; gap: 10px;
+    transition: border-color .15s, transform .15s;
+  }
+  .card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .card h3 { font-size: 16px; font-weight: 600; }
+  .card h3 a { color: var(--text); }
+  .card h3 a:hover { color: var(--accent); text-decoration: none; }
+  .card p { font-size: 14px; color: var(--text-dim); flex: 1; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-family: "JetBrains Mono", monospace; font-size: 11.5px;
+    color: var(--accent); background: var(--accent-dim);
+    padding: 3px 9px; border-radius: 99px;
+  }
+
+  /* Publications */
+  .pub { padding: 16px 0; border-bottom: 1px solid var(--border); font-size: 15px; }
+  .pub:last-child { border-bottom: none; }
+  .pub .venue { font-family: "JetBrains Mono", monospace; font-size: 12.5px; color: var(--accent); }
+  .pub .authors { color: var(--text-dim); font-size: 14px; }
+
+  /* Skills */
+  .skills { display: grid; grid-template-columns: 160px 1fr; gap: 10px 20px; font-size: 15px; }
+  .skills dt { color: var(--text); font-weight: 600; }
+  .skills dd { color: var(--text-dim); }
+
+  /* Certs */
+  .certs { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .certs li {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 8px; padding: 12px 16px; font-size: 14px;
+  }
+  .certs li a { color: var(--text); }
+  .certs li a:hover { color: var(--accent); text-decoration: none; }
+
+  /* Footer */
+  footer { border-top: 1px solid var(--border); padding: 48px 0 64px; text-align: center; }
+  footer .contact { font-size: 17px; font-weight: 600; margin-bottom: 8px; }
+  footer p { color: var(--text-dim); font-size: 14px; }
+  footer .foot-links { margin-top: 16px; display: flex; justify-content: center; gap: 20px; font-size: 14px; }
+
+  @media (max-width: 640px) {
+    h1 { font-size: 32px; }
+    .tagline { font-size: 17px; }
+    .grid, .certs { grid-template-columns: 1fr; }
+    .skills { grid-template-columns: 1fr; gap: 2px; }
+    .skills dd { margin-bottom: 10px; }
+  }
+</style>
 </head>
 <body>
-    <h1>Fashion MNIST Predictor</h1>
-    
-    <input type="file" id="fileInput" accept="image/*">
-    <br><br>
-    
-    <canvas id="canvas" width="280" height="280"></canvas>
-    
-    <h3>Result: <span id="result"></span></h3>
 
-    <script>
-        let session = null;
-        let labels = [];
+<nav>
+  <div class="container">
+    <span class="brand">vuhuy<span style="color:var(--accent)">.</span></span>
+    <div class="links">
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#publications">Publications</a>
+      <a href="#skills">Skills</a>
+    </div>
+  </div>
+</nav>
 
-        // Load labels
-        fetch('labels.json')
-            .then(res => res.json())
-            .then(data => labels = data);
+<header class="container">
+  <p class="kicker">Hi, my name is</p>
+  <h1>Nguyen Vu Huy</h1>
+  <p class="tagline">Data Scientist · AI Engineer</p>
+  <p class="intro">
+    B.S. in Artificial Intelligence at <strong>FPT University</strong> (GPA 8.05).
+    I work on <strong>NLP</strong>, <strong>Retrieval-Augmented Generation</strong>, and
+    <strong>machine learning</strong> — turning data into models that ship.
+    First author of a peer-reviewed paper on low-resource machine translation.
+  </p>
+  <div class="hero-links">
+    <a class="btn primary" href="mailto:nguyenvuhuyofficial@gmail.com">Get in touch</a>
+    <a class="btn" href="https://github.com/vuhuyng04" target="_blank" rel="noopener">GitHub</a>
+    <a class="btn" href="https://www.linkedin.com/in/vuhuyng" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</header>
 
-        // Load model
-        ort.InferenceSession.create('fashion_cnn.onnx')
-            .then(s => session = s);
+<section id="experience" class="container">
+  <h2><span class="num">01.</span> Experience</h2>
 
-        // Handle file upload
-        document.getElementById('fileInput').addEventListener('change', (e) => {
-            const file = e.target.files[0];
-            const reader = new FileReader();
-            
-            reader.onload = (event) => {
-                const img = new Image();
-                img.onload = () => predict(img);
-                img.src = event.target.result;
-            };
-            
-            reader.readAsDataURL(file);
-        });
+  <div class="item">
+    <div class="item-head">
+      <span class="item-title">TPBank <span class="role">— Data Science Collaborator</span></span>
+      <span class="item-date">Mar 2026 – Jun 2026</span>
+    </div>
+    <ul>
+      <li>Queried and explored the UAT database with SQL to understand banking data structures.</li>
+      <li>Applied the CRISP-DM methodology to real-world data science workflows in banking.</li>
+      <li>Worked through data profiling, data quality assessment, and preprocessing workflows with mentor-led walkthroughs of production project codebases.</li>
+    </ul>
+  </div>
 
-        async function predict(img) {
-            const canvas = document.getElementById('canvas');
-            const ctx = canvas.getContext('2d');
-            
-            // Draw original
-            ctx.drawImage(img, 0, 0, 280, 280);
-            
-            // Create 28x28 canvas
-            const small = document.createElement('canvas');
-            small.width = 28;
-            small.height = 28;
-            const smallCtx = small.getContext('2d');
-            smallCtx.drawImage(img, 0, 0, 28, 28);
-            
-            // Get pixels and convert to grayscale
-            const imageData = smallCtx.getImageData(0, 0, 28, 28);
-            const data = imageData.data;
-            const input = new Float32Array(28 * 28);
-            
-            for (let i = 0; i < 28 * 28; i++) {
-                const gray = (data[i*4] + data[i*4+1] + data[i*4+2]) / 3;
-                input[i] = (gray / 255 - 0.5) / 0.5;
-            }
-            
-            // Run model
-            const tensor = new ort.Tensor('float32', input, [1, 1, 28, 28]);
-            const results = await session.run({ input: tensor });
-            const output = results.output.data;
-            
-            // Get prediction
-            const maxIdx = output.indexOf(Math.max(...output));
-            document.getElementById('result').textContent = labels[maxIdx];
-        }
-    </script>
+  <div class="item">
+    <div class="item-head">
+      <span class="item-title">FPT Software <span class="role">— Student Intern (On-the-Job Training)</span></span>
+      <span class="item-date">May 2025 – Sep 2025</span>
+    </div>
+    <ul>
+      <li>Built a Retrieval-Augmented Generation chatbot with Python, Qdrant vector database, and FastAPI for knowledge retrieval.</li>
+      <li>Contributed to a Java-based movie ticket booking web application in an Agile Scrum environment.</li>
+    </ul>
+  </div>
+
+  <div class="item">
+    <div class="item-head">
+      <span class="item-title">AI VIET NAM <span class="role">— AIO2024 Cohort</span> <a href="https://lms.aivietnam.edu.vn/verification/accomplishments/72751297" target="_blank" rel="noopener" style="font-size:13px">[certificate]</a></span>
+      <span class="item-date">Jun 2024 – Jun 2025</span>
+    </div>
+    <ul>
+      <li>Completed a one-year intensive residency of 300+ sessions: math for AI, machine learning, deep learning, computer vision, NLP, and generative AI / LLMs.</li>
+      <li>Contributed to the AI VIET NAM Research Group; co-authored peer-reviewed papers in machine translation and object detection.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="projects" class="container">
+  <h2><span class="num">02.</span> Selected Projects</h2>
+  <div class="grid">
+    <div class="card">
+      <h3><a href="https://github.com/vuhuyng04/RAG_Project" target="_blank" rel="noopener">RAG Chatbot for E-commerce Q&amp;A ↗</a></h3>
+      <p>Retrieval-augmented chatbot answering product queries for an online store — multilingual embeddings, cosine-similarity semantic search over Qdrant, and Gemini 2.0 Flash for fast, context-aware answers.</p>
+      <div class="tags"><span class="tag">RAG</span><span class="tag">Qdrant</span><span class="tag">Gemini</span><span class="tag">FastAPI</span></div>
+    </div>
+    <div class="card">
+      <h3><a href="https://github.com/vuhuyng04/craw_data_VietnamNews_and_classification" target="_blank" rel="noopener">Vietnam News Crawling &amp; Classification ↗</a></h3>
+      <p>End-to-end Vietnamese-news NLP pipeline: scraped and cleaned thousands of articles, engineered TF-IDF features, trained a multi-class XGBoost classifier, and deployed it as a Flask web app for real-time inference.</p>
+      <div class="tags"><span class="tag">Scraping</span><span class="tag">XGBoost</span><span class="tag">Flask</span></div>
+    </div>
+    <div class="card">
+      <h3><a href="https://github.com/vuhuyng04/finetune-bert-ntc-scv-sentiment" target="_blank" rel="noopener">BERT for Vietnamese Sentiment ↗</a></h3>
+      <p>Fine-tuned BERT on the NTC-SCV dataset for Vietnamese sentiment classification, with the full training pipeline published on GitHub.</p>
+      <div class="tags"><span class="tag">BERT</span><span class="tag">PyTorch</span><span class="tag">Transformers</span></div>
+    </div>
+    <div class="card">
+      <h3><a href="https://github.com/vuhuyng04" target="_blank" rel="noopener">More on GitHub ↗</a></h3>
+      <p>Data pipelines, MLOps experiments, LLM fine-tuning, and coursework — explore the rest of my repositories.</p>
+      <div class="tags"><span class="tag">MLOps</span><span class="tag">Data Engineering</span><span class="tag">LLMs</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="publications" class="container">
+  <h2><span class="num">03.</span> Publications</h2>
+  <div class="pub">
+    <span class="venue">FETC 2025 · ISBN 978-632-609-823-5</span><br>
+    <a href="https://science.fpt.edu.vn/FETC/AcceptedPaper/PaperDetail?id=7c767f79-d643-43ab-f415-08ddeee6c255" target="_blank" rel="noopener">Low-Resource English–Vietnamese Translation: A Comparative Study of mBART-50 and NLLB</a>
+    <div class="authors">First author</div>
+  </div>
+  <div class="pub">
+    <span class="venue">CSoNet 2025</span><br>
+    <a href="https://csonet-conf.github.io/csonet25/index.php/accepted-papers/index.html" target="_blank" rel="noopener">Attention-Enhanced YOLO-Nano for Adverse Weather Object Detection</a>
+    <div class="authors">Third author</div>
+  </div>
+</section>
+
+<section id="skills" class="container">
+  <h2><span class="num">04.</span> Technical Skills</h2>
+  <dl class="skills">
+    <dt>Programming</dt><dd>Python, SQL</dd>
+    <dt>ML / DL</dt><dd>PyTorch, Scikit-learn, Hugging Face Transformers</dd>
+    <dt>GenAI / NLP</dt><dd>Retrieval-Augmented Generation, prompt engineering, AI APIs, Qdrant</dd>
+    <dt>Data &amp; Tools</dt><dd>NumPy, Pandas, Matplotlib, Seaborn, AWS, Docker, Git/GitHub, MLflow, Feast, FastAPI</dd>
+  </dl>
+</section>
+
+<section id="certifications" class="container">
+  <h2><span class="num">05.</span> Certifications</h2>
+  <ul class="certs">
+    <li><a href="https://www.coursera.org/account/accomplishments/professional-cert/8XIWN5631DMR" target="_blank" rel="noopener">IBM Data Science Professional Certificate</a></li>
+    <li><a href="https://www.coursera.org/account/accomplishments/certificate/7WE5MQ21FY8I" target="_blank" rel="noopener">AWS Cloud Practitioner Essentials</a></li>
+    <li><a href="https://www.coursera.org/account/accomplishments/specialization/LO035J80BA7R" target="_blank" rel="noopener">Deep Learning Specialization (Andrew Ng)</a></li>
+    <li><a href="https://www.coursera.org/account/accomplishments/specialization/O7766J56J2YB" target="_blank" rel="noopener">Project Management Principles and Practices</a></li>
+  </ul>
+</section>
+
+<footer>
+  <div class="container">
+    <p class="contact"><a href="mailto:nguyenvuhuyofficial@gmail.com">nguyenvuhuyofficial@gmail.com</a></p>
+    <p>(+84) 379 934 607 · Vietnam</p>
+    <div class="foot-links">
+      <a href="https://github.com/vuhuyng04" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/vuhuyng" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <p style="margin-top:24px; font-size:12.5px;">© 2026 Nguyen Vu Huy</p>
+  </div>
+</footer>
+
 </body>
 </html>
