@@ -31,22 +31,12 @@
           {% if start_date != '' %}
             {% comment %}
               OVERRIDE: the bundled template keeps only the year, which renders a
-              three-month internship as "2025 - 2025". Show month and year when the
-              source date carries a month, and fall back to the raw value otherwise.
+              three-month internship as "2025 - 2025". Keep year and month, matching the
+              YYYY.MM format the upstream al-folio resume templates use.
             {% endcomment %}
-            {% if start_date contains '-' %}
-              {% assign startDate = start_date | date: '%b %Y' %}
-            {% else %}
-              {% assign startDate = start_date %}
-            {% endif %}
-            {% if end_date == '' %}
-              {% assign endDate = 'Present' %}
-            {% elsif end_date contains '-' %}
-              {% assign endDate = end_date | date: '%b %Y' %}
-            {% else %}
-              {% assign endDate = end_date %}
-            {% endif %}
-            {% assign date = startDate | append: ' – ' | append: endDate %}
+            {% assign startDate = start_date | split: '-' | slice: 0, 2 | join: '.' %}
+            {% assign endDate = end_date | split: '-' | slice: 0, 2 | join: '.' | default: 'Present' %}
+            {% assign date = startDate | append: ' - ' | append: endDate %}
           {% elsif point_date != '' %}
             {% comment %} A standalone date is a point in time, never an open-ended range, so it renders as a single year {% endcomment %}
             {% assign date = point_date | split: '-' | first %}
