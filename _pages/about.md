@@ -6,7 +6,7 @@ subtitle: Data Scientist · AI Engineer
 
 profile:
   align: right
-  image: # đặt ảnh vào assets/img/ rồi điền tên file vào đây
+  image: prof_pic.jpg
   image_circular: false
   more_info: >
     <p>Hanoi, Vietnam</p>

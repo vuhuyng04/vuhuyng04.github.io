@@ -49,3 +49,12 @@ ul.list-group {
   margin-bottom: 2rem;
   list-style: none;
 }
+
+/* al_folio_core's bib layout wraps the site owner's own name in <em> (matched via
+   scholar.last_name / scholar.first_name in _config.yml). <em> renders italic by
+   default; underline is the convention this CV uses. */
+.author em {
+  font-style: normal;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
