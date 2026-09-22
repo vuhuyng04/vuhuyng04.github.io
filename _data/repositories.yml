@@ -1,0 +1,8 @@
+# GitHub profiles / repos shown on the /repositories/ page.
+# That page is currently hidden from the navbar (_pages/repositories.md -> nav: false)
+# but is still built and reachable. Fill these in before enabling it.
+github_users: []
+
+repo_description_lines_max: 2
+
+github_repos: []

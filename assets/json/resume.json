@@ -1,0 +1,113 @@
+{
+  "basics": {
+    "name": "Nguyen Vu Huy",
+    "label": "Data Scientist · AI Engineer",
+    "image": "",
+    "email": "nguyenvuhuyofficial@gmail.com",
+    "url": "https://vuhuyng04.github.io",
+    "summary": "Data scientist and AI engineer working on natural language processing, retrieval-augmented generation, and applied machine learning. My work spans the full path from data to a deployed model: exploration and feature engineering, training and evaluation, and serving the result behind an API. I hold a B.S. in Artificial Intelligence from FPT University and have published peer-reviewed work on low-resource machine translation and object detection.",
+    "location": { "city": "Can Tho", "countryCode": "VN", "region": "Vietnam" },
+    "profiles": [
+      { "network": "GitHub", "username": "vuhuyng04", "url": "https://github.com/vuhuyng04" },
+      { "network": "LinkedIn", "username": "vuhuyng", "url": "https://www.linkedin.com/in/vuhuyng" }
+    ]
+  },
+  "work": [
+    {
+      "name": "TPBank",
+      "position": "Data Science Collaborator",
+      "location": "Hanoi, Vietnam",
+      "startDate": "2026-03-01",
+      "endDate": "2026-06-30",
+      "highlights": [
+        "Queried and explored the UAT database with SQL to understand banking data structures.",
+        "Applied the CRISP-DM methodology to real-world data science workflows in banking.",
+        "Worked through data profiling, data quality assessment, and preprocessing on prior production codebases."
+      ]
+    },
+    {
+      "name": "FPT Software",
+      "position": "Student Intern, On-the-Job Training",
+      "location": "Can Tho, Vietnam",
+      "startDate": "2025-05-01",
+      "endDate": "2025-09-30",
+      "highlights": [
+        "Built a retrieval-augmented generation chatbot with Python, Qdrant, and FastAPI for knowledge retrieval.",
+        "Contributed to a Java-based movie ticket booking application in an Agile Scrum team."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "FPT University",
+      "area": "Artificial Intelligence",
+      "studyType": "B.S."
+    },
+    {
+      "institution": "AI VIET NAM — AIO2024",
+      "area": "One-year AI residency program (Remote)",
+      "studyType": "Certificate",
+      "startDate": "2024-06-01",
+      "endDate": "2025-06-30",
+      "url": "https://lms.aivietnam.edu.vn/verification/accomplishments/72751297",
+      "courses": [
+        "300+ sessions covering mathematics for AI, machine learning, deep learning, computer vision, NLP, and generative AI.",
+        "Contributed to the AI VIET NAM Research Group, which produced the publications listed here."
+      ]
+    }
+  ],
+  "publications": [
+    {
+      "name": "Low-Resource English–Vietnamese Translation: A Comparative Study of mBART-50 and NLLB",
+      "publisher": "FETC 2025 · ISBN 978-632-609-823-5",
+      "releaseDate": "2025",
+      "url": "https://science.fpt.edu.vn/FETC/AcceptedPaper/PaperDetail?id=7c767f79-d643-43ab-f415-08ddeee6c255",
+      "summary": "First author."
+    },
+    {
+      "name": "Attention-Enhanced YOLO-Nano for Adverse Weather Object Detection",
+      "publisher": "CSoNet 2025",
+      "releaseDate": "2025",
+      "url": "https://csonet-conf.github.io/csonet25/index.php/accepted-papers/index.html",
+      "summary": "Third author."
+    }
+  ],
+  "projects": [
+    {
+      "name": "RAG Chatbot for E-commerce Product Q&A",
+      "startDate": "2025",
+      "url": "https://github.com/vuhuyng04/RAG_Project",
+      "description": "A retrieval-augmented chatbot that answers product questions for an online store. Uses gte-multilingual-base embeddings, a Qdrant vector database with cosine-similarity semantic search, and Gemini 2.0 Flash for generation."
+    },
+    {
+      "name": "Vietnam News Crawling and Text Classification",
+      "url": "https://github.com/vuhuyng04/craw_data_VietnamNews_and_classification",
+      "description": "An end-to-end Vietnamese news pipeline: scraped and cleaned thousands of articles into a structured dataset, engineered TF-IDF features, trained a multi-class XGBoost classifier evaluated on accuracy and F1, and deployed it as a Flask application for real-time inference."
+    },
+    {
+      "name": "Fine-tuned BERT for Vietnamese Sentiment Classification",
+      "startDate": "2024",
+      "url": "https://github.com/vuhuyng04/finetune-bert-ntc-scv-sentiment",
+      "description": "Fine-tuned BERT on the NTC-SCV dataset for Vietnamese sentiment analysis, with the full training pipeline published for reproduction."
+    }
+  ],
+  "certificates": [
+    { "name": "IBM Data Science Professional Certificate", "issuer": "Coursera", "url": "https://www.coursera.org/account/accomplishments/professional-cert/8XIWN5631DMR" },
+    { "name": "AWS Cloud Practitioner Essentials", "issuer": "Coursera", "url": "https://www.coursera.org/account/accomplishments/certificate/7WE5MQ21FY8I" },
+    { "name": "Deep Learning Specialization", "issuer": "Coursera", "url": "https://www.coursera.org/account/accomplishments/specialization/LO035J80BA7R" },
+    { "name": "Project Management Principles and Practices", "issuer": "Coursera", "url": "https://www.coursera.org/account/accomplishments/specialization/O7766J56J2YB" }
+  ],
+  "skills": [
+    { "name": "Programming", "keywords": ["Python", "SQL"] },
+    { "name": "Machine learning", "keywords": ["PyTorch", "scikit-learn", "Hugging Face Transformers"] },
+    { "name": "Generative AI and NLP", "keywords": ["Retrieval-augmented generation", "Prompt engineering", "Model APIs", "Qdrant"] },
+    { "name": "Data and tooling", "keywords": ["NumPy", "Pandas", "Matplotlib", "Seaborn", "AWS", "Docker", "Git", "MLflow", "Feast", "FastAPI"] }
+  ],
+  "interests": [
+    { "name": "Research interests", "keywords": ["Natural language processing", "Retrieval-augmented generation", "Low-resource machine translation", "Applied machine learning"] }
+  ],
+  "volunteer": [],
+  "awards": [],
+  "languages": [],
+  "references": []
+}
