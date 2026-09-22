@@ -4,36 +4,64 @@
     "label": "Data Scientist · AI Engineer",
     "image": "",
     "email": "nguyenvuhuyofficial@gmail.com",
+    "phone": "(+84) 379 934 607",
     "url": "https://vuhuyng04.github.io",
-    "summary": "Data scientist and AI engineer working on natural language processing, retrieval-augmented generation, and applied machine learning. My work spans the full path from data to a deployed model: exploration and feature engineering, training and evaluation, and serving the result behind an API. I hold a B.S. in Artificial Intelligence from FPT University and have published peer-reviewed work on low-resource machine translation and object detection.",
-    "location": { "city": "Can Tho", "countryCode": "VN", "region": "Vietnam" },
+    "summary": "Data scientist and AI engineer working on natural language processing, retrieval-augmented generation, and agentic AI systems. My work spans the full path from data to a deployed model: exploration and feature engineering, training and evaluation, and serving the result behind an API. I hold a B.S. in Artificial Intelligence from FPT University and have published peer-reviewed work on low-resource machine translation and object detection.",
+    "location": { "city": "Hanoi", "countryCode": "VN", "region": "Vietnam" },
     "profiles": [
       { "network": "GitHub", "username": "vuhuyng04", "url": "https://github.com/vuhuyng04" },
-      { "network": "LinkedIn", "username": "vuhuyng", "url": "https://www.linkedin.com/in/vuhuyng" }
+      { "network": "LinkedIn", "username": "vuhuyng", "url": "https://www.linkedin.com/in/vuhuyng" },
+      { "network": "ORCID", "username": "0009-0006-1838-4542", "url": "https://orcid.org/0009-0006-1838-4542" }
     ]
   },
   "work": [
     {
+      "name": "VinUni × Vingroup — AI in Action (AI20k), Cohort IV",
+      "position": "Advanced Track (Levels 3–4)",
+      "location": "Hanoi, Vietnam",
+      "startDate": "2026-09-01",
+      "endDate": "",
+      "summary": "Selected for the advanced track of Vingroup's 20,000 Applied AI Talent Program — an intensive, SFIA-aligned program pairing coursework with hands-on AI projects delivered at Vingroup companies.",
+      "highlights": [
+        "Building production-grade agentic AI systems: multi-agent orchestration with LangGraph, tool integration via the Model Context Protocol (MCP) and agent-to-agent (A2A) communication, retrieval-augmented generation, and LLM evaluation and guardrails.",
+        "Applying LLMOps and observability practices — containerized deployment with Docker and monitoring/tracing stacks (Prometheus, Grafana, OpenTelemetry) — to ship reliable, cost-aware AI services."
+      ]
+    },
+    {
       "name": "TPBank",
-      "position": "Data Science Collaborator",
+      "position": "CTV Data Science",
       "location": "Hanoi, Vietnam",
       "startDate": "2026-03-01",
       "endDate": "2026-06-30",
       "highlights": [
-        "Queried and explored the UAT database with SQL to understand banking data structures.",
-        "Applied the CRISP-DM methodology to real-world data science workflows in banking.",
-        "Worked through data profiling, data quality assessment, and preprocessing on prior production codebases."
+        "Queried and explored data from the UAT database using SQL to understand banking data structures and perform EDA.",
+        "Learned the CRISP-DM methodology and its application to real-world data science workflows in banking.",
+        "Participated in technical mentoring sessions covering TPBank's data model and machine learning models.",
+        "Gained exposure to data profiling, data quality assessment, and data preprocessing workflows through mentor-led walkthroughs of previous project codebases."
       ]
     },
     {
       "name": "FPT Software",
-      "position": "Student Intern, On-the-Job Training",
+      "position": "Student Intern (On-the-Job Training)",
       "location": "Can Tho, Vietnam",
       "startDate": "2025-05-01",
       "endDate": "2025-09-30",
       "highlights": [
-        "Built a retrieval-augmented generation chatbot with Python, Qdrant, and FastAPI for knowledge retrieval.",
-        "Contributed to a Java-based movie ticket booking application in an Agile Scrum team."
+        "Built a Retrieval-Augmented Generation (RAG) chatbot using Python, Qdrant Vector Database, and FastAPI for knowledge retrieval.",
+        "Contributed to the development of a Java-based movie ticket booking web application in an Agile Scrum environment.",
+        "Assisted the backend team by supporting Java development tasks and collaborating on feature implementation."
+      ]
+    },
+    {
+      "name": "AI VIET NAM — AIO2024 Cohort",
+      "position": "Residency Member",
+      "location": "Remote",
+      "startDate": "2024-06-01",
+      "endDate": "2025-06-30",
+      "url": "https://lms.aivietnam.edu.vn/verification/accomplishments/72751297",
+      "highlights": [
+        "Completed a one-year intensive residency of 300+ sessions covering mathematics for AI, machine learning, deep learning, computer vision, NLP, and generative AI / LLMs.",
+        "Contributed to the AI VIET NAM Research Group; co-authored peer-reviewed papers in machine translation and object detection."
       ]
     }
   ],
@@ -41,18 +69,10 @@
     {
       "institution": "FPT University",
       "area": "Artificial Intelligence",
-      "studyType": "B.S."
-    },
-    {
-      "institution": "AI VIET NAM — AIO2024",
-      "area": "One-year AI residency program (Remote)",
-      "studyType": "Certificate",
-      "startDate": "2024-06-01",
-      "endDate": "2025-06-30",
-      "url": "https://lms.aivietnam.edu.vn/verification/accomplishments/72751297",
+      "studyType": "B.S.",
+      "score": "GPA 8.075",
       "courses": [
-        "300+ sessions covering mathematics for AI, machine learning, deep learning, computer vision, NLP, and generative AI.",
-        "Contributed to the AI VIET NAM Research Group, which produced the publications listed here."
+        "Thesis: An Intelligent CV–Job Description Matching Model for Recruitment Decision Support"
       ]
     }
   ],
@@ -77,34 +97,34 @@
       "name": "RAG Chatbot for E-commerce Product Q&A",
       "startDate": "2025",
       "url": "https://github.com/vuhuyng04/RAG_Project",
-      "description": "A retrieval-augmented chatbot that answers product questions for an online store. Uses gte-multilingual-base embeddings, a Qdrant vector database with cosine-similarity semantic search, and Gemini 2.0 Flash for generation."
-    },
-    {
-      "name": "Vietnam News Crawling and Text Classification",
-      "url": "https://github.com/vuhuyng04/craw_data_VietnamNews_and_classification",
-      "description": "An end-to-end Vietnamese news pipeline: scraped and cleaned thousands of articles into a structured dataset, engineered TF-IDF features, trained a multi-class XGBoost classifier evaluated on accuracy and F1, and deployed it as a Flask application for real-time inference."
+      "description": "A retrieval-augmented generation chatbot answering product queries for an online store: gte-multilingual-base embeddings, a Qdrant vector database with cosine-similarity semantic search, and Gemini 2.0 Flash for answer generation — fast, multilingual, context-aware responses."
     },
     {
       "name": "Fine-tuned BERT for Vietnamese Sentiment Classification",
       "startDate": "2024",
       "url": "https://github.com/vuhuyng04/finetune-bert-ntc-scv-sentiment",
-      "description": "Fine-tuned BERT on the NTC-SCV dataset for Vietnamese sentiment analysis, with the full training pipeline published for reproduction."
+      "description": "Fine-tuned a BERT model on the NTC-SCV dataset for sentiment analysis, with the code and training pipeline published on GitHub."
+    },
+    {
+      "name": "Vietnam News Crawling & Text Classification",
+      "url": "https://github.com/vuhuyng04/craw_data_VietnamNews_and_classification",
+      "description": "An end-to-end Vietnamese-news NLP pipeline (web scraping → EDA → model training → deployment): scraped and cleaned thousands of news articles into a structured CSV dataset, engineered TF-IDF features and trained a multi-class XGBoost classifier (evaluated with confusion matrix and accuracy / F1), and deployed the model as a Flask web app for real-time classification."
     }
   ],
   "certificates": [
     { "name": "IBM Data Science Professional Certificate", "issuer": "Coursera", "url": "https://www.coursera.org/account/accomplishments/professional-cert/8XIWN5631DMR" },
     { "name": "AWS Cloud Practitioner Essentials", "issuer": "Coursera", "url": "https://www.coursera.org/account/accomplishments/certificate/7WE5MQ21FY8I" },
-    { "name": "Deep Learning Specialization", "issuer": "Coursera", "url": "https://www.coursera.org/account/accomplishments/specialization/LO035J80BA7R" },
+    { "name": "Deep Learning Specialization (Andrew Ng)", "issuer": "Coursera", "url": "https://www.coursera.org/account/accomplishments/specialization/LO035J80BA7R" },
     { "name": "Project Management Principles and Practices", "issuer": "Coursera", "url": "https://www.coursera.org/account/accomplishments/specialization/O7766J56J2YB" }
   ],
   "skills": [
     { "name": "Programming", "keywords": ["Python", "SQL"] },
-    { "name": "Machine learning", "keywords": ["PyTorch", "scikit-learn", "Hugging Face Transformers"] },
-    { "name": "Generative AI and NLP", "keywords": ["Retrieval-augmented generation", "Prompt engineering", "Model APIs", "Qdrant"] },
-    { "name": "Data and tooling", "keywords": ["NumPy", "Pandas", "Matplotlib", "Seaborn", "AWS", "Docker", "Git", "MLflow", "Feast", "FastAPI"] }
+    { "name": "Machine Learning / Deep Learning", "keywords": ["PyTorch", "Scikit-learn", "HuggingFace"] },
+    { "name": "Generative AI / NLP", "keywords": ["RAG", "LangChain", "LangGraph", "Prompt Engineering", "Qdrant", "MCP"] },
+    { "name": "Data / MLOps", "keywords": ["NumPy", "Pandas", "Matplotlib", "Seaborn", "PowerBI", "MLflow", "Feast", "FastAPI", "AWS (S3, EC2)", "Docker", "Git/GitHub"] }
   ],
   "interests": [
-    { "name": "Research interests", "keywords": ["Natural language processing", "Retrieval-augmented generation", "Low-resource machine translation", "Applied machine learning"] }
+    { "name": "Research interests", "keywords": ["Agentic AI systems", "Retrieval-augmented generation", "Low-resource machine translation", "LLM evaluation and guardrails"] }
   ],
   "volunteer": [],
   "awards": [],
