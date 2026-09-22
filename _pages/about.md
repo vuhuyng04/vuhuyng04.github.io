@@ -9,8 +9,8 @@ profile:
   image: prof_pic.jpg
   image_circular: false
   more_info: >
-    <p>Hanoi, Vietnam</p>
-    <p><a href="mailto:nguyenvuhuyofficial@gmail.com">nguyenvuhuyofficial@gmail.com</a></p>
+    <p>Student, AI20k</p>
+    <p>VinUniversity, Hanoi</p>
 
 selected_papers: true
 social: true
