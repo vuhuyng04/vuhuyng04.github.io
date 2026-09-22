@@ -11,6 +11,7 @@
     "profiles": [
       { "network": "GitHub", "username": "vuhuyng04", "url": "https://github.com/vuhuyng04" },
       { "network": "LinkedIn", "username": "vuhuyng", "url": "https://www.linkedin.com/in/vuhuyng" },
+      { "network": "Google Scholar", "username": "OGsd3doAAAAJ", "url": "https://scholar.google.com/citations?user=OGsd3doAAAAJ&hl=en" },
       { "network": "ORCID", "username": "0009-0006-1838-4542", "url": "https://orcid.org/0009-0006-1838-4542" }
     ]
   },
