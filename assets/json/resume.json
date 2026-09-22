@@ -70,6 +70,9 @@
       "institution": "FPT University",
       "area": "Artificial Intelligence",
       "studyType": "B.S.",
+      "location": "Can Tho, Vietnam",
+      "startDate": "2022-10-01",
+      "endDate": "2026-08-31",
       "score": "GPA 8.075",
       "courses": [
         "Thesis: An Intelligent CV–Job Description Matching Model for Recruitment Decision Support"
