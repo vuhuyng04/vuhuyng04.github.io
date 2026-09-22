@@ -1,0 +1,51 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+/* Built-in Sass modules you’ll likely use across partials */
+@use "sass:math";
+@use "sass:string";
+
+/* Configure your design tokens BEFORE loading any of your partials.
+   Make sure `_sass/_variables.scss` declares `$max-content-width: 72rem !default;` */
+@use "variables" with (
+  $max-content-width: {{ site.max_width | default:  "930px" }}
+);
+
+/* Your project partials — convert these files to `@use "variables";`
+   (or `@use "variables" as *;`) inside each file and qualify variables if needed. */
+@use "themes";
+@use "layout";
+
+// Core styles organized by usage
+@use "typography";
+@use "navbar";
+@use "footer";
+@use "blog";
+@use "publications";
+@use "components";
+@use "utilities";
+
+// Other specialized styles
+@use "tabs";
+@use "teachings";
+@use "typograms";
+
+/* ---------------------------------------------------------------------------
+   Local overrides. Everything above this line mirrors the al_folio_core gem's
+   own assets/css/main.scss; keep it in sync when upgrading the gem.
+   --------------------------------------------------------------------------- */
+
+/* The al_folio_cv gem ships `div.list-group { display: flex; ... }`, but its CV
+   templates render `<ul class="list-group">`. A `ul` never matches a `div`
+   selector, so the rule is dead and the browser falls back to `list-style: disc`
+   — putting a bullet in front of every CV entry, right before the date badge.
+   Tailwind's reset does not zero list styles either, so fix it here. */
+ul.list-group {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 2rem;
+  list-style: none;
+}
