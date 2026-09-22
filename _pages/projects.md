@@ -1,6 +1,6 @@
 ---
 layout: page
-title: projects
+title: Projects
 permalink: /projects/
 description: Selected work in NLP, retrieval-augmented generation, and applied machine learning.
 nav: true
