@@ -1,58 +1,57 @@
-# Portfolio al-folio — hướng dẫn hoàn tất
+# Ghi chú bảo trì
 
-Khung đã dựng sẵn từ template gốc [alshedivat/al-folio](https://github.com/alshedivat/al-folio)
-(chính là theme của https://huyenbui117.github.io). Nội dung demo đã dọn sạch.
+Site chạy tại https://vuhuyng04.github.io — al-folio (theme gem), build bằng
+GitHub Actions (`.github/workflows/deploy.yml`) rồi deploy qua
+`actions/deploy-pages`. Pages source đặt là **GitHub Actions**, không phải
+"Deploy from a branch".
 
-## ⚠️ Chưa an toàn để chia sẻ link
+## Nội dung nằm ở đâu
 
-Hai thứ vẫn là dữ liệu demo của template và **sẽ hiển thị trên site** cho tới khi bạn thay:
+| Trang | File |
+|---|---|
+| `/` | `_pages/about.md` |
+| `/cv/` | `assets/json/resume.json` (chuẩn JSON Resume) |
+| `/publications/` | `_bibliography/papers.bib` |
+| `/projects/` | `_projects/*.md` |
+| Ảnh đại diện | `assets/img/prof_pic.jpg` |
+| Liên kết mạng xã hội | `_data/socials.yml` |
 
-- `assets/img/prof_pic.jpg` — ảnh Albert Einstein, hiện trên trang chủ.
-- `assets/img/prof_pic_color.png` — ảnh demo thứ hai (14 MB), xoá nếu không dùng.
+## Ba file vá lỗi theme — đừng xoá khi nâng gem
 
-`assets/json/resume.json` và `_data/repositories.yml` đã được dọn rỗng, nên `/cv/`
-sẽ trống chứ không hiện CV của người khác.
+Theme đóng gói layouts/includes trong gem, nên repo này ghi đè ba chỗ. Cả ba
+đều là **vá bug của gem**, không phải tuỳ biến thẩm mỹ. Khi nâng `al_folio_cv`
+hoặc `al_folio_core`, kiểm tra xem bug đã được sửa chưa rồi mới bỏ.
 
-## Chưa build lần nào
+**`assets/css/main.scss`** — copy nguyên `@use` của `al_folio_core`, thêm 2 luật:
 
-Máy này không có Ruby/Docker nên site **chưa từng được build**. Tôi mới chỉ kiểm tra
-YAML/JSON hợp lệ — việc đó không bắt được lỗi Liquid hay lỗi Jekyll. Lần kiểm tra
-thật đầu tiên là khi GitHub Actions chạy sau lúc push.
+- `ul.list-group { list-style: none; ... }`
+  Gem ship `div.list-group { display:flex; ... }` nhưng template của chính nó
+  render `<ul class="list-group">`. `ul` không khớp selector `div`, luật chết,
+  trình duyệt rơi về `list-style: disc` → mỗi mục CV bị một dấu `•` thừa phía
+  trước badge ngày tháng. Tailwind cũng không reset `list-style`.
 
-## Còn thiếu (bắt buộc)
+- `.author em { text-decoration: underline; ... }`
+  `bib.liquid` bọc tên chủ site trong `<em>` (so khớp qua `scholar.last_name` /
+  `scholar.first_name` trong `_config.yml`). `<em>` mặc định in nghiêng; CV này
+  dùng gạch chân.
 
-| Việc | File | Ghi chú |
-|---|---|---|
-| ~~Tên hiển thị~~ | ~~`_config.yml`~~ | ✅ đã đặt "Huy Nguyễn Vũ" — sửa nếu muốn khác |
-| ~~URL site~~ | ~~`_config.yml`~~ | ✅ đã đặt `https://vuhuyng04.github.io` |
-| Ảnh đại diện | `assets/img/prof_pic.jpg` | ghi đè file demo |
-| Giới thiệu | `_pages/about.md` | phần dưới `---` |
-| CV | `assets/json/resume.json` | chuẩn JSON Resume |
-| Bài báo | `_bibliography/papers.bib` | BibTeX |
+**`_includes/cv/experience.liquid`** và **`_includes/cv/education.liquid`** —
+copy từ gem `al_folio_cv`, sửa hai chỗ (đều có comment `OVERRIDE:` tại chỗ):
 
-## Deploy
+- Ngày tháng: gem dùng `| split:'-' | first` nên cắt còn năm, khiến kỳ thực tập
+  3 tháng hiện thành "2025 - 2025". Đổi sang `| slice: 0, 2 | join: '.'` → `2025.05 - 2025.09`,
+  khớp định dạng của al-folio bản cũ.
+- `education.liquid` thêm khối render `entry.score` (GPA) — template gốc bỏ qua
+  trường này hoàn toàn.
 
-1. Tạo repo GitHub tên **chính xác** `vuhuyng04.github.io` (repo rỗng, không thêm README).
-2. Push:
-   Remote đã cấu hình sẵn, chỉ cần:
-   ```bash
-   git push -u origin main
-   ```
-3. Settings → Actions → General → Workflow permissions → chọn **Read and write permissions** → Save.
-   (Thiếu bước này Actions không push được nhánh `gh-pages`.)
-4. Chạy lại workflow "Deploy site" nếu lần đầu fail.
-5. Settings → Pages → Source: **Deploy from a branch** → Branch: **`gh-pages`** / `(root)` → Save.
+Gem **append** thư mục template của nó vào `includes_load_paths`, nên `_includes/`
+của repo được ưu tiên. Đó là lý do cách ghi đè này chạy được.
 
-> Quan trọng: Pages phải trỏ vào `gh-pages`, KHÔNG phải `main`. al-folio build bằng
-> GitHub Actions vì plugin `jekyll-scholar` không nằm trong danh sách cho phép của
-> GitHub Pages. Trỏ vào `main` sẽ ra site lỗi hoặc trắng trang.
+## Lưu ý khác
 
-Sau bước 5, đợi ~2–3 phút rồi mở `https://vuhuyng04.github.io`.
-
-## Điều hướng đang bật
-
-`about` (/) · `publications` · `cv`
-
-Các trang `blog`, `projects`, `repositories`, `teaching`, `books`, `people`, `submenus`
-đã đặt `nav: false`. Muốn bật lại: sửa `nav: false` → `nav: true` trong file tương ứng
-ở `_pages/`.
+- `max_author_limit` trong `_config.yml` để trống — nếu đặt số, danh sách tác giả
+  sẽ bị cắt và giấu phần còn lại sau nút bấm.
+- `_source/original-index.html` là trang portfolio đơn trang tự dựng trước đây,
+  giữ lại phòng khi cần. Bản trong lịch sử git ở commit `d5374b1`.
+- Mỗi lần push, Actions mất khoảng 3–5 phút (cài Ruby, Jekyll, ImageMagick,
+  purgecss). Build hỏng thì deployment cũ vẫn được giữ nguyên.
