@@ -6,7 +6,7 @@
     "email": "nguyenvuhuyofficial@gmail.com",
     "phone": "(+84) 379 934 607",
     "url": "https://vuhuyng04.github.io",
-    "summary": "Data scientist and AI engineer working on natural language processing, retrieval-augmented generation, and agentic AI systems. My work spans the full path from data to a deployed model: exploration and feature engineering, training and evaluation, and serving the result behind an API. I hold a B.S. in Artificial Intelligence from FPT University and have published peer-reviewed work on low-resource machine translation and object detection.",
+    "summary": "Data scientist and AI engineer working on natural language processing, retrieval-augmented generation, and agentic AI systems. My work spans the full path from data to a deployed model: exploration and feature engineering, training and evaluation, and serving the result behind an API. I hold a Bachelor of Science in Artificial Intelligence from FPT University and have published peer-reviewed work on low-resource machine translation and object detection.",
     "location": { "city": "Hanoi", "countryCode": "VN", "region": "Vietnam" },
     "profiles": [
       { "network": "GitHub", "username": "vuhuyng04", "url": "https://github.com/vuhuyng04" },
@@ -69,7 +69,7 @@
     {
       "institution": "FPT University",
       "area": "Artificial Intelligence",
-      "studyType": "B.S.",
+      "studyType": "Bachelor of Science",
       "location": "Can Tho, Vietnam",
       "startDate": "2022-10-01",
       "endDate": "2026-08-31",
