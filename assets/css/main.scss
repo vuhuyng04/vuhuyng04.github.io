@@ -68,6 +68,7 @@ ul.list-group {
    hover for pointers, and on focus so a tap or a keyboard Tab works too --
    no JavaScript. */
 .cv-ref-item {
+  position: relative;
   padding: 0.5rem 0;
 }
 
@@ -106,7 +107,6 @@ a.cv-ref-name:hover {
 }
 
 .cv-evidence {
-  position: relative;
   display: inline-flex;
   align-items: center;
   color: var(--global-theme-color);
@@ -122,7 +122,7 @@ a.cv-ref-name:hover {
   display: none;
   position: absolute;
   left: 0;
-  top: calc(100% + 0.5rem);
+  top: calc(100% - 0.25rem);
   z-index: 50;
   width: min(44rem, 88vw);
   padding: 0.4rem;
