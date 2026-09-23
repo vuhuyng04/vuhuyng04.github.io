@@ -1,45 +1,49 @@
 {% comment %}
-  Unified references entry renderer for both formats.
+  OVERRIDE of al_folio_cv's templates/cv/references.liquid.
 
-  OVERRIDE of al_folio_cv's templates/cv/references.liquid. The bundled version
-  renders only `name` and `reference`. This adds three optional fields:
+  The bundled version renders a plain <ul> of name + reference. This lays the
+  section out the way al-folio's older resume templates did — a graduation-cap
+  icon, the referee's name as a heading, and their affiliation/contact on a
+  bold line underneath — and adds two optional fields:
 
-    position  - the referee's role, shown under their name
-    url       - links the referee's name out (e.g. their LinkedIn profile)
-    evidence  - path under assets/img/ to a screenshot of the original
-                recommendation, revealed on hover / tap / keyboard focus
+    quote     - a recommendation the referee wrote, shown under the details
+    evidence  - file under assets/img/ holding a screenshot of that
+                recommendation, revealed by the eye icon on hover, tap or
+                keyboard focus (CSS only, see assets/css/main.scss)
 
-  Everything else is unchanged from the gem.
+  The older theme's own `list-groups` / `list-group-category` classes are not
+  in al_folio_core's CSS, so the equivalent styles live in main.scss instead.
 {% endcomment %}
 
-<ul class="card-text font-weight-light list-group list-group-flush">
+<div class="card-text font-weight-light">
   {% for entry in entries %}
-    <li class="list-group-item">
-      {% if entry.icon %}
-        <i class="{{ entry.icon }}"></i>
-      {% endif %}
-
-      {% if entry.url %}
-        <strong><a href="{{ entry.url }}" target="_blank" rel="noopener noreferrer">{{ entry.name }}</a></strong>
-      {% else %}
-        <strong>{{ entry.name }}</strong>
-      {% endif %}
-
-      {% if entry.position %}
-        <span class="cv-ref-position">{{ entry.position }}</span>
-      {% endif %}
-
-      {% if entry.evidence %}
-        <span class="cv-evidence" tabindex="0" role="button" aria-label="Show the original recommendation">
-          <i class="fa-solid fa-image"></i>
-          evidence
-          <span class="cv-evidence-popup" role="tooltip">
-            <img src="{{ entry.evidence | prepend: '/assets/img/' | relative_url }}" alt="Original recommendation from {{ entry.name }}" loading="lazy" />
+    <div class="cv-ref-item">
+      <div class="cv-ref-head">
+        <i class="{{ entry.icon | default: 'fa-solid fa-graduation-cap' }} cv-ref-icon"></i>
+        {% if entry.url %}
+          <a class="cv-ref-name" href="{{ entry.url }}" target="_blank" rel="noopener noreferrer">{{ entry.name }}</a>
+        {% else %}
+          <span class="cv-ref-name">{{ entry.name }}</span>
+        {% endif %}
+        {% if entry.evidence %}
+          <span class="cv-evidence" tabindex="0" role="button" aria-label="Show the original recommendation from {{ entry.name }}">
+            <i class="fa-solid fa-eye"></i>
+            <span class="cv-evidence-popup" role="tooltip">
+              <img src="{{ entry.evidence | prepend: '/assets/img/' | relative_url }}" alt="Original recommendation from {{ entry.name }}" loading="lazy" />
+            </span>
           </span>
-        </span>
+        {% endif %}
+      </div>
+
+      {% if entry.reference %}
+        <div class="cv-ref-detail">
+          <b>{{ entry.reference | markdownify | remove: '<p>' | remove: '</p>' }}</b>
+        </div>
       {% endif %}
 
-      <p>{{ entry.reference | markdownify | remove: '<p>' | remove: '</p>' }}</p>
-    </li>
+      {% if entry.quote %}
+        <div class="cv-ref-quote">{{ entry.quote | markdownify | remove: '<p>' | remove: '</p>' }}</div>
+      {% endif %}
+    </div>
   {% endfor %}
-</ul>
+</div>

@@ -59,12 +59,49 @@ ul.list-group {
   text-underline-offset: 2px;
 }
 
-/* References on /cv/. `_includes/cv/references.liquid` (an override of the gem's
-   template) adds an "evidence" affordance that reveals a screenshot of the
-   original recommendation. Shown on hover for pointers, and on focus so that a
-   tap or a keyboard Tab works too — no JavaScript. */
-.cv-ref-position {
+/* References on /cv/. `_includes/cv/references.liquid` overrides the gem's
+   template to reproduce the layout al-folio's older resume templates used
+   (icon + name + bold detail line); those themes' `list-group-category`
+   classes are not in al_folio_core's CSS, so the styles live here.
+
+   The eye icon reveals a screenshot of the original recommendation. Shown on
+   hover for pointers, and on focus so a tap or a keyboard Tab works too --
+   no JavaScript. */
+.cv-ref-item {
+  padding: 0.5rem 0;
+}
+
+.cv-ref-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cv-ref-icon {
+  color: var(--global-theme-color);
   font-size: 0.9rem;
+}
+
+.cv-ref-name {
+  font-size: 1.05rem;
+  color: var(--global-text-color);
+}
+
+a.cv-ref-name:hover {
+  color: var(--global-theme-color);
+}
+
+.cv-ref-detail {
+  padding-left: 1.4rem;
+  font-size: 0.95rem;
+  overflow-wrap: anywhere;
+}
+
+.cv-ref-quote {
+  padding-left: 1.4rem;
+  margin-top: 0.2rem;
+  font-size: 0.9rem;
+  font-style: italic;
   color: var(--global-text-color-light);
 }
 
@@ -72,12 +109,13 @@ ul.list-group {
   position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
-  margin-left: 0.6rem;
-  font-size: 0.8rem;
   color: var(--global-theme-color);
   cursor: pointer;
-  border-bottom: 1px dotted currentColor;
+}
+
+.cv-evidence:hover,
+.cv-evidence:focus {
+  opacity: 0.75;
 }
 
 .cv-evidence-popup {
