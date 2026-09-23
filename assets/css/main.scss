@@ -58,3 +58,51 @@ ul.list-group {
   text-decoration: underline;
   text-underline-offset: 2px;
 }
+
+/* References on /cv/. `_includes/cv/references.liquid` (an override of the gem's
+   template) adds an "evidence" affordance that reveals a screenshot of the
+   original recommendation. Shown on hover for pointers, and on focus so that a
+   tap or a keyboard Tab works too — no JavaScript. */
+.cv-ref-position {
+  font-size: 0.9rem;
+  color: var(--global-text-color-light);
+}
+
+.cv-evidence {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-left: 0.6rem;
+  font-size: 0.8rem;
+  color: var(--global-theme-color);
+  cursor: pointer;
+  border-bottom: 1px dotted currentColor;
+}
+
+.cv-evidence-popup {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: calc(100% + 0.5rem);
+  z-index: 50;
+  width: min(44rem, 88vw);
+  padding: 0.4rem;
+  background-color: var(--global-card-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.4rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.cv-evidence-popup img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.25rem;
+}
+
+.cv-evidence:hover .cv-evidence-popup,
+.cv-evidence:focus .cv-evidence-popup,
+.cv-evidence:focus-within .cv-evidence-popup {
+  display: block;
+}
