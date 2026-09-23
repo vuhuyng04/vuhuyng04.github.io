@@ -122,7 +122,11 @@ a.cv-ref-name:hover {
   display: none;
   position: absolute;
   left: 0;
-  top: calc(100% - 0.25rem);
+  /* Opens upward. References is the last section on the page, so a panel
+     placed below it overflows past the bottom of the document and the browser
+     grows the scrollbar to reach it. Opening upward overlays content that is
+     already there and leaves the page height alone. */
+  bottom: calc(100% - 0.25rem);
   z-index: 50;
   width: min(44rem, 88vw);
   padding: 0.4rem;
