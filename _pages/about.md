@@ -9,7 +9,7 @@ profile:
   image: prof_pic.jpg
   image_circular: false
   more_info: >
-    <p>Student, AI20k</p>
+    <p>Student AI20k</p>
     <p>VinUniversity, Hanoi</p>
 
 selected_papers: true
