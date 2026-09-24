@@ -166,25 +166,6 @@ a.cv-ref-name:hover {
   height: min(800px, 80vh);
 }
 
-.pdf-download {
-  text-align: center;
-  margin-top: 1.2rem;
-}
 
-.pdf-download .btn-primary {
-  display: inline-block;
-  padding: 0.6rem 1.2rem;
-  border-radius: 0.3rem;
-  background-color: var(--global-theme-color);
-  color: var(--global-card-bg-color);
-  text-decoration: none;
-}
 
-.pdf-download .btn-primary:hover {
-  opacity: 0.85;
-  color: var(--global-card-bg-color);
-}
 
-.pdf-download .btn-primary i {
-  margin-right: 0.5rem;
-}

@@ -55,11 +55,6 @@ collapsing the entire URL to an epoch number. {%- endcomment -%}
 <div class="pdf-container">
 <embed src="{{ aio_url }}" type="application/pdf" />
 </div>
-<p class="pdf-download">
-<a href="{{ aio_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-<i class="fa-solid fa-download"></i> Download AIO2024 certificates
-</a>
-</p>
 {%- endif -%}
 
 {%- if merged -%}
@@ -70,11 +65,6 @@ collapsing the entire URL to an epoch number. {%- endcomment -%}
 <div class="pdf-container">
 <embed src="{{ merged_url }}" type="application/pdf" />
 </div>
-<p class="pdf-download">
-<a href="{{ merged_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-<i class="fa-solid fa-download"></i> Download all certificates
-</a>
-</p>
 {%- endif -%}
 
 {%- unless aio or merged -%}
