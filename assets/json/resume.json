@@ -116,9 +116,11 @@
     }
   ],
   "certificates": [
-    { "name": "IBM Data Science Professional Certificate", "issuer": "Coursera", "url": "https://www.coursera.org/account/accomplishments/professional-cert/8XIWN5631DMR" },
+    { "name": "Getting Started with Data Analytics on AWS", "issuer": "Amazon Web Services", "date": "2026-07-31", "url": "https://www.coursera.org/account/accomplishments/certificate/94DCDN7C1M23" },
+    { "name": "Machine Learning Operations (MLOps): Getting Started", "issuer": "Google Cloud", "date": "2026-07-30", "url": "https://www.coursera.org/account/accomplishments/certificate/B7HR2XBHBL88" },
+    { "name": "IBM Data Science Professional Certificate", "issuer": "IBM Skills Network", "date": "2026-07-28", "url": "https://www.coursera.org/account/accomplishments/professional-cert/8XIWN5631DMR" },
+    { "name": "Deep Learning Specialization", "issuer": "DeepLearning.AI", "date": "2025-03-31", "url": "https://www.coursera.org/account/accomplishments/specialization/LO035J80BA7R" },
     { "name": "AWS Cloud Practitioner Essentials", "issuer": "Coursera", "url": "https://www.coursera.org/account/accomplishments/certificate/7WE5MQ21FY8I" },
-    { "name": "Deep Learning Specialization (Andrew Ng)", "issuer": "Coursera", "url": "https://www.coursera.org/account/accomplishments/specialization/LO035J80BA7R" },
     { "name": "Project Management Principles and Practices", "issuer": "Coursera", "url": "https://www.coursera.org/account/accomplishments/specialization/O7766J56J2YB" }
   ],
   "skills": [
@@ -137,7 +139,7 @@
     {
       "name": "Dr. Dinh Quang Vinh",
       "evidence": "reference_aivietnam.png",
-      "reference": "Co-founder [AI VIETNAM](https://aivietnam.edu.vn)"
+      "reference": "Co-founder, [AI VIETNAM](https://aivietnam.edu.vn)"
     }
   ]
 }
