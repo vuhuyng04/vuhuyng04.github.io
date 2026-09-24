@@ -148,3 +148,43 @@ a.cv-ref-name:hover {
 .cv-evidence:focus-within .cv-evidence-popup {
   display: block;
 }
+
+/* /academic-programs/ — embedded PDF sections. The upstream theme's awards page
+   inlines these rules in a <style> block and hard-codes height: 800px, which
+   overflows small screens; keep them here and cap against the viewport. */
+.pdf-container {
+  margin: 1.8rem 0;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pdf-container embed {
+  display: block;
+  width: 100%;
+  height: min(800px, 80vh);
+}
+
+.pdf-download {
+  text-align: center;
+  margin-top: 1.2rem;
+}
+
+.pdf-download .btn-primary {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.3rem;
+  background-color: var(--global-theme-color);
+  color: var(--global-card-bg-color);
+  text-decoration: none;
+}
+
+.pdf-download .btn-primary:hover {
+  opacity: 0.85;
+  color: var(--global-card-bg-color);
+}
+
+.pdf-download .btn-primary i {
+  margin-right: 0.5rem;
+}
