@@ -8,46 +8,52 @@ nav_order: 4
 ---
 
 {%- comment -%}
-  Sections are built from whatever PDFs sit in assets/pdf/academic/, rather
-  than from a hard-coded list, so adding a document means dropping a file in
-  and pushing — no edit here.
+  One viewer, not one per certificate.
 
-  The filename becomes the heading. Prefix with a number to control the order:
+  assets/pdf/certificates.pdf is the merged file, built by bin/merge_certificates.py
+  from the individual PDFs in assets/pdf/academic/. It carries a bookmark per
+  certificate, so the viewer's outline doubles as the table of contents.
 
-      assets/pdf/academic/1_IBM Data Science.pdf   ->  "IBM Data Science"
-      assets/pdf/academic/2_Deep Learning.pdf      ->  "Deep Learning"
-
-  The numeric prefix is stripped for display. With the folder empty the page
-  says the section is being prepared instead of embedding a broken viewer.
+  The individual files stay in assets/pdf/academic/ and are listed underneath as
+  direct downloads — that list is generated from the folder, so adding a
+  certificate means: drop the PDF in, rerun bin/merge_certificates.py, commit both.
 
   TWO THINGS THIS FILE HAS TO GET RIGHT, both of which fail silently:
 
-  1. Emit the headings as HTML <h2>, not Markdown `##`. Liquid's trimming tags
+  1. Emit headings as HTML <h2>, not Markdown `##`. Liquid's trimming tags
      (`-%}`) swallow the blank line a Markdown heading needs to open a block,
-     so every heading after the first renders as body text.
+     so headings after the first render as body text.
 
   2. Keep every emitted line flush at column 0. Markdown reads four leading
      spaces as a code block, so indenting this HTML for readability publishes
-     the whole section as escaped source inside <pre><code>.
+     the section as escaped source inside <pre><code>.
 {%- endcomment -%}
 
+{%- assign merged = nil -%}
+{%- for f in site.static_files -%}
+{%- if f.path == '/assets/pdf/certificates.pdf' -%}{%- assign merged = f -%}{%- endif -%}
+{%- endfor -%}
 {%- assign pdfs = site.static_files | where_exp: "f", "f.extname == '.pdf'" | where_exp: "f", "f.path contains '/assets/pdf/academic/'" | sort: "path" -%}
 
-{%- if pdfs.size > 0 -%}
-{%- for f in pdfs -%}
-{%- assign section_title = f.basename | regex_replace: '^[0-9]+[_\-\s]*', '' -%}
-{%- assign pdf_url = f.path | relative_url -%}
-{%- unless forloop.first -%}<hr>{%- endunless -%}
-<h2 id="{{ section_title | slugify }}">{{ section_title }}</h2>
+{%- if merged -%}
+{%- assign merged_url = merged.path | relative_url -%}
 <div class="pdf-container">
-<embed src="{{ pdf_url }}" type="application/pdf" />
+<embed src="{{ merged_url }}" type="application/pdf" />
 </div>
 <p class="pdf-download">
-<a href="{{ pdf_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-<i class="fa-solid fa-download"></i> Download full document
+<a href="{{ merged_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+<i class="fa-solid fa-download"></i> Download all certificates
 </a>
 </p>
+{%- if pdfs.size > 0 -%}
+<h2 id="individual-certificates">Individual certificates</h2>
+<ul class="cert-list">
+{%- for f in pdfs -%}
+{%- assign cert_title = f.basename | regex_replace: '^[0-9]+[_\-\s]*', '' -%}
+<li><a href="{{ f.path | relative_url }}" target="_blank" rel="noopener noreferrer"><i class="fa-regular fa-file-pdf"></i> {{ cert_title }}</a></li>
 {%- endfor -%}
+</ul>
+{%- endif -%}
 {%- else -%}
 
 ## Being prepared
