@@ -14,35 +14,39 @@ nav_order: 4
 
   The filename becomes the heading. Prefix with a number to control the order:
 
-      assets/pdf/academic/1_AI VIET NAM AIO2024.pdf   ->  "AI VIET NAM AIO2024"
-      assets/pdf/academic/2_Coursera Certificates.pdf ->  "Coursera Certificates"
+      assets/pdf/academic/1_IBM Data Science.pdf   ->  "IBM Data Science"
+      assets/pdf/academic/2_Deep Learning.pdf      ->  "Deep Learning"
 
   The numeric prefix is stripped for display. With the folder empty the page
   says the section is being prepared instead of embedding a broken viewer.
+
+  Headings and separators are written as HTML rather than Markdown on purpose:
+  Liquid's whitespace-trimming tags swallow the blank line a Markdown `##`
+  needs to start a block, so every heading after the first silently rendered
+  as body text.
 {%- endcomment -%}
 
 {%- assign pdfs = site.static_files | where_exp: "f", "f.extname == '.pdf'" | where_exp: "f", "f.path contains '/assets/pdf/academic/'" | sort: "path" -%}
 
 {%- if pdfs.size > 0 -%}
-{%- for f in pdfs -%}
-{%- assign section_title = f.basename | regex_replace: '^[0-9]+[_\-\s]*', '' -%}
-{%- assign pdf_url = f.path | relative_url -%}
+  {%- for f in pdfs -%}
+    {%- assign section_title = f.basename | regex_replace: '^[0-9]+[_\-\s]*', '' -%}
+    {%- assign pdf_url = f.path | relative_url -%}
 
-## {{ section_title }}
+    {%- unless forloop.first %}<hr>{% endunless -%}
 
-<div class="pdf-container">
-  <embed src="{{ pdf_url }}" type="application/pdf" />
-</div>
+    <h2 id="{{ section_title | slugify }}">{{ section_title }}</h2>
 
-<p class="pdf-download">
-  <a href="{{ pdf_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-    <i class="fa-solid fa-download"></i> Download full document
-  </a>
-</p>
+    <div class="pdf-container">
+      <embed src="{{ pdf_url }}" type="application/pdf" />
+    </div>
 
-{% unless forloop.last %}---{% endunless %}
-{%- endfor -%}
-
+    <p class="pdf-download">
+      <a href="{{ pdf_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+        <i class="fa-solid fa-download"></i> Download full document
+      </a>
+    </p>
+  {%- endfor -%}
 {%- else -%}
 
 ## Being prepared
