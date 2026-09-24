@@ -45,7 +45,11 @@ nav_order: 4
 {%- assign pdfs = site.static_files | where_exp: "f", "f.extname == '.pdf'" | where_exp: "f", "f.path contains '/assets/pdf/academic/'" | sort: "path" -%}
 
 {%- if aio -%}
-{%- assign aio_url = aio.path | relative_url | append: '?v=' | append: aio.modified_time | date: '%s' -%}
+{%- comment -%} Compute the stamp on its own line: chaining `| date` after `| append`
+applies it to the whole concatenated string, and Liquid parses that as a date,
+collapsing the entire URL to an epoch number. {%- endcomment -%}
+{%- assign aio_v = aio.modified_time | date: '%s' -%}
+{%- assign aio_url = aio.path | relative_url | append: '?v=' | append: aio_v -%}
 <h2 id="ai-viet-nam-aio2024">AI VIET NAM — AIO2024</h2>
 <p>Final examinations passed in all four modules of the one-year residency: Machine Learning, Deep Learning, Computer Vision and NLP, and GenAI and LLMs. Graduated 22 June 2025.</p>
 <div class="pdf-container">
@@ -59,7 +63,8 @@ nav_order: 4
 {%- endif -%}
 
 {%- if merged -%}
-{%- assign merged_url = merged.path | relative_url | append: '?v=' | append: merged.modified_time | date: '%s' -%}
+{%- assign merged_v = merged.modified_time | date: '%s' -%}
+{%- assign merged_url = merged.path | relative_url | append: '?v=' | append: merged_v -%}
 <hr>
 <h2 id="certificates">Certificates</h2>
 <div class="pdf-container">
