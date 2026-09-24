@@ -8,15 +8,22 @@ nav_order: 4
 ---
 
 {%- comment -%}
-  One viewer, not one per certificate.
+  Two viewers:
 
-  assets/pdf/certificates.pdf is the merged file, built by bin/merge_certificates.py
-  from the individual PDFs in assets/pdf/academic/. It carries a bookmark per
-  certificate, so the viewer's outline doubles as the table of contents.
+  1. assets/pdf/aio2024.pdf      — the AI VIET NAM AIO2024 module certificates,
+                                    kept on its own because it is a programme
+                                    rather than a set of standalone courses.
+  2. assets/pdf/certificates.pdf — the online certificates, merged from the
+                                    individual PDFs in assets/pdf/academic/ by
+                                    bin/merge_certificates.py, with a bookmark
+                                    per certificate. Those individual files are
+                                    listed underneath as direct downloads.
 
-  The individual files stay in assets/pdf/academic/ and are listed underneath as
-  direct downloads — that list is generated from the folder, so adding a
-  certificate means: drop the PDF in, rerun bin/merge_certificates.py, commit both.
+  Adding a certificate: drop the PDF into assets/pdf/academic/ named
+  "5_Its Title.pdf", rerun bin/merge_certificates.py, commit both files.
+
+  Every PDF URL carries ?v=<mtime>. The paths never change when a file is
+  rebuilt, and PDF viewers hold on to the old bytes without it.
 
   TWO THINGS THIS FILE HAS TO GET RIGHT, both of which fail silently:
 
@@ -29,16 +36,32 @@ nav_order: 4
      the section as escaped source inside <pre><code>.
 {%- endcomment -%}
 
+{%- assign aio = nil -%}
 {%- assign merged = nil -%}
 {%- for f in site.static_files -%}
+{%- if f.path == '/assets/pdf/aio2024.pdf' -%}{%- assign aio = f -%}{%- endif -%}
 {%- if f.path == '/assets/pdf/certificates.pdf' -%}{%- assign merged = f -%}{%- endif -%}
 {%- endfor -%}
 {%- assign pdfs = site.static_files | where_exp: "f", "f.extname == '.pdf'" | where_exp: "f", "f.path contains '/assets/pdf/academic/'" | sort: "path" -%}
 
+{%- if aio -%}
+{%- assign aio_url = aio.path | relative_url | append: '?v=' | append: aio.modified_time | date: '%s' -%}
+<h2 id="ai-viet-nam-aio2024">AI VIET NAM — AIO2024</h2>
+<p>Final examinations passed in all four modules of the one-year residency: Machine Learning, Deep Learning, Computer Vision and NLP, and GenAI and LLMs. Graduated 22 June 2025.</p>
+<div class="pdf-container">
+<embed src="{{ aio_url }}" type="application/pdf" />
+</div>
+<p class="pdf-download">
+<a href="{{ aio_url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+<i class="fa-solid fa-download"></i> Download AIO2024 certificates
+</a>
+</p>
+{%- endif -%}
+
 {%- if merged -%}
-{%- comment -%} ?v= busts the browser cache: the path never changes when the merged
-PDF is rebuilt, and PDF viewers hold on to the old bytes. {%- endcomment -%}
 {%- assign merged_url = merged.path | relative_url | append: '?v=' | append: merged.modified_time | date: '%s' -%}
+<hr>
+<h2 id="certificates">Certificates</h2>
 <div class="pdf-container">
 <embed src="{{ merged_url }}" type="application/pdf" />
 </div>
@@ -48,7 +71,6 @@ PDF is rebuilt, and PDF viewers hold on to the old bytes. {%- endcomment -%}
 </a>
 </p>
 {%- if pdfs.size > 0 -%}
-<h2 id="individual-certificates">Individual certificates</h2>
 <ul class="cert-list">
 {%- for f in pdfs -%}
 {%- assign cert_title = f.basename | regex_replace: '^[0-9]+[_\-\s]*', '' -%}
@@ -56,7 +78,9 @@ PDF is rebuilt, and PDF viewers hold on to the old bytes. {%- endcomment -%}
 {%- endfor -%}
 </ul>
 {%- endif -%}
-{%- else -%}
+{%- endif -%}
+
+{%- unless aio or merged -%}
 
 ## Being prepared
 
@@ -64,4 +88,4 @@ The supporting documents for this section are not online yet. In the meantime,
 the [CV page]({{ '/cv/' | relative_url }}) lists every programme and certificate,
 each linked to its verification page.
 
-{%- endif -%}
+{%- endunless -%}
