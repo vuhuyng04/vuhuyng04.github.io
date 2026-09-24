@@ -16,8 +16,9 @@ nav_order: 4
   2. assets/pdf/certificates.pdf — the online certificates, merged from the
                                     individual PDFs in assets/pdf/academic/ by
                                     bin/merge_certificates.py, with a bookmark
-                                    per certificate. Those individual files are
-                                    listed underneath as direct downloads.
+                                    per certificate. The viewer's outline is how
+                                    a reader reaches a single certificate; the
+                                    source PDFs are not linked separately.
 
   Adding a certificate: drop the PDF into assets/pdf/academic/ named
   "5_Its Title.pdf", rerun bin/merge_certificates.py, commit both files.
@@ -42,7 +43,6 @@ nav_order: 4
 {%- if f.path == '/assets/pdf/aio2024.pdf' -%}{%- assign aio = f -%}{%- endif -%}
 {%- if f.path == '/assets/pdf/certificates.pdf' -%}{%- assign merged = f -%}{%- endif -%}
 {%- endfor -%}
-{%- assign pdfs = site.static_files | where_exp: "f", "f.extname == '.pdf'" | where_exp: "f", "f.path contains '/assets/pdf/academic/'" | sort: "path" -%}
 
 {%- if aio -%}
 {%- comment -%} Compute the stamp on its own line: chaining `| date` after `| append`
@@ -75,14 +75,6 @@ collapsing the entire URL to an epoch number. {%- endcomment -%}
 <i class="fa-solid fa-download"></i> Download all certificates
 </a>
 </p>
-{%- if pdfs.size > 0 -%}
-<ul class="cert-list">
-{%- for f in pdfs -%}
-{%- assign cert_title = f.basename | regex_replace: '^[0-9]+[_\-\s]*', '' -%}
-<li><a href="{{ f.path | relative_url }}?v={{ f.modified_time | date: '%s' }}" target="_blank" rel="noopener noreferrer"><i class="fa-regular fa-file-pdf"></i> {{ cert_title }}</a></li>
-{%- endfor -%}
-</ul>
-{%- endif -%}
 {%- endif -%}
 
 {%- unless aio or merged -%}
