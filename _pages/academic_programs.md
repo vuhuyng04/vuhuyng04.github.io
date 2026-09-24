@@ -36,7 +36,9 @@ nav_order: 4
 {%- assign pdfs = site.static_files | where_exp: "f", "f.extname == '.pdf'" | where_exp: "f", "f.path contains '/assets/pdf/academic/'" | sort: "path" -%}
 
 {%- if merged -%}
-{%- assign merged_url = merged.path | relative_url -%}
+{%- comment -%} ?v= busts the browser cache: the path never changes when the merged
+PDF is rebuilt, and PDF viewers hold on to the old bytes. {%- endcomment -%}
+{%- assign merged_url = merged.path | relative_url | append: '?v=' | append: merged.modified_time | date: '%s' -%}
 <div class="pdf-container">
 <embed src="{{ merged_url }}" type="application/pdf" />
 </div>
@@ -50,7 +52,7 @@ nav_order: 4
 <ul class="cert-list">
 {%- for f in pdfs -%}
 {%- assign cert_title = f.basename | regex_replace: '^[0-9]+[_\-\s]*', '' -%}
-<li><a href="{{ f.path | relative_url }}" target="_blank" rel="noopener noreferrer"><i class="fa-regular fa-file-pdf"></i> {{ cert_title }}</a></li>
+<li><a href="{{ f.path | relative_url }}?v={{ f.modified_time | date: '%s' }}" target="_blank" rel="noopener noreferrer"><i class="fa-regular fa-file-pdf"></i> {{ cert_title }}</a></li>
 {%- endfor -%}
 </ul>
 {%- endif -%}
