@@ -1,10 +1,10 @@
 ---
 layout: page
 permalink: /academic-programs/
-title: Academic Programs & Certificates
+title: Programs & Certificates
 description: Programmes, certifications and specialised training completed.
 nav: true
-nav_order: 4
+nav_order: 2
 ---
 
 {%- comment -%}
@@ -82,7 +82,7 @@ collapsing the entire URL to an epoch number. {%- endcomment -%}
 ## Being prepared
 
 The supporting documents for this section are not online yet. In the meantime,
-the [CV page]({{ '/cv/' | relative_url }}) lists every programme and certificate,
+the [Resume page]({{ '/cv/' | relative_url }}) lists every programme and certificate,
 each linked to its verification page.
 
 {%- endunless -%}

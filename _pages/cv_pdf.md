@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /cv-pdf/
-title: CV (PDF)
+title: Resume (PDF)
 nav: false
 ---
 
@@ -37,6 +37,6 @@ Opening the CV… if nothing happens, [download it here]({{ cv_url }}).
 ## The PDF is being updated
 
 There is no downloadable CV here at the moment. Everything in it is on the
-[CV page]({{ '/cv/' | relative_url }}), which is always current.
+[Resume page]({{ '/cv/' | relative_url }}), which is always current.
 
 {%- endif -%}

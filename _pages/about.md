@@ -1,6 +1,6 @@
 ---
 layout: about
-title: About
+title: About me
 permalink: /
 subtitle: AI/Data Scientist
 
@@ -9,7 +9,7 @@ profile:
   image: prof_pic.jpg
   image_circular: false
   more_info: >
-    <p>Student AI20k</p>
+    <p>Student, AI20k</p>
     <p>VinUniversity, Hanoi</p>
 
 selected_papers: true
