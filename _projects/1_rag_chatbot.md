@@ -2,6 +2,7 @@
 layout: page
 title: RAG Chatbot for E-commerce Product Q&A
 description: Retrieval-augmented chatbot answering product questions for an online store
+img: assets/img/projects/rag-chatbot.jpg
 importance: 1
 category: work
 github: https://github.com/vuhuyng04/RAG_Project
