@@ -83,6 +83,13 @@
   ],
   "publications": [
     {
+      "name": "Multi-View Representation Learning and Cross-View Interaction Modeling for Semantic Candidate–Job Matching",
+      "publisher": "EAI FISAT 2026 · Springer, EAI SICC series",
+      "releaseDate": "2026",
+      "url": "https://fisat.eai-conferences.org/2026/",
+      "summary": "Accepted, to appear. Ho Chi Minh City, 25–27 November 2026."
+    },
+    {
       "name": "Low-Resource English–Vietnamese Translation: A Comparative Study of mBART-50 and NLLB",
       "publisher": "FETC 2025 · ISBN 978-632-609-823-5",
       "releaseDate": "2025",
