@@ -36,8 +36,27 @@ Resume-Score-Details, a Vietnamese–English benchmark, and Resume-Job-Descripti
 Built as three services — a React front end, a FastAPI back end, and a separate AI
 service — covering CV storage, CV–JD matching, ranking, pairwise comparison and search.
 
-## Demo
+## Walkthrough
 
-{% include figure.liquid loading="lazy" path="assets/img/projects/cv-job-matching.jpg" class="img-fluid rounded z-depth-1" zoomable=true alt="The CV Comparison screen, scoring two candidate CVs against one job description" %}
+<!--
+  Written out rather than through the theme's video.liquid: that include emits a
+  self-closing <video ... />, which HTML does not allow, so the parser leaves the
+  element open and swallows the rest of the page into it.
+
+  preload="none" keeps the 10 MB off the initial page load; the poster stands in
+  until the viewer presses play.
+-->
+
+<div class="video-embed">
+<video controls preload="none" poster="{{ 'assets/img/projects/cv-job-matching.jpg' | relative_url }}" title="Capstone walkthrough: architecture, training objective, datasets and results">
+<source src="{{ 'assets/video/capstone-demo.mp4' | relative_url }}" type="video/mp4" />
+Your browser cannot play this video. <a href="{{ 'assets/video/capstone-demo.mp4' | relative_url }}">Download it instead.</a>
+</video>
+</div>
+
+The recording covers the system overview, the multi-view architecture, the training
+objective, the datasets and the benchmark results. The live screening sequence from the
+original recording is held back: it ran against real candidate CVs, and those are other
+people's personal data.
 
 Team project with Thai Phong Huan, Dang Hoang Kiet and Nguyen Thi Bich Tuyen · 2026
