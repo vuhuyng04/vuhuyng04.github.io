@@ -5,6 +5,7 @@ description: Capstone project and the basis of the EAI FISAT 2026 paper — mult
 img: assets/img/projects/cv-job-matching.jpg
 importance: 1
 category: work
+github: https://github.com/vuhuyng04/cv-job-matching
 ---
 
 My graduation capstone at **FPT University** (AIP491, Can Tho, August 2026), supervised
@@ -58,5 +59,8 @@ The recording covers the system overview, the multi-view architecture, the train
 objective, the datasets and the benchmark results. The live screening sequence from the
 original recording is held back: it ran against real candidate CVs, and those are other
 people's personal data.
+
+Code: [vuhuyng04/cv-job-matching](https://github.com/vuhuyng04/cv-job-matching) — published
+without the `.env` files, the uploaded candidate CVs or the model checkpoints.
 
 Team project with Thai Phong Huan, Dang Hoang Kiet and Nguyen Thi Bich Tuyen · 2026
