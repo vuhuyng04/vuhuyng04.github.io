@@ -3,7 +3,7 @@ layout: page
 title: Vietnam News Crawling and Text Classification
 description: End-to-end Vietnamese news pipeline, from scraping to a deployed classifier
 img: assets/img/projects/news-classification.jpg
-importance: 2
+importance: 3
 category: work
 github: https://github.com/vuhuyng04/craw_data_VietnamNews_and_classification
 ---

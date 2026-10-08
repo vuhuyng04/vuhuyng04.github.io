@@ -3,7 +3,7 @@ layout: page
 title: Fine-tuned BERT for Vietnamese Sentiment Classification
 description: BERT fine-tuned on the NTC-SCV dataset, served as a web app
 img: assets/img/projects/bert-sentiment.png
-importance: 3
+importance: 4
 category: work
 github: https://github.com/vuhuyng04/finetune-bert-ntc-scv-sentiment
 ---
