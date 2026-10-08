@@ -356,7 +356,7 @@ display_categories: ["external-services"] # these categories will be displayed o
 
 scholar:
   last_name: [Nguyen]
-  first_name: [Huy Vu, V.]
+  first_name: [Huy Vu, Vu Huy, V.] # the papers spell the given names in both orders
 
   style: apa
   locale: en
