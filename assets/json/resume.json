@@ -107,25 +107,21 @@
   "projects": [
     {
       "name": "Intelligent CV–Job Description Matching",
-      "startDate": "2026",
       "url": "https://github.com/vuhuyng04/cv-job-matching",
       "description": "Graduation capstone, and the system behind the EAI FISAT 2026 paper. An LLM decomposes each CV into 10 views and each job description into 5; a cross-encoder scores every view pair into an alignment matrix; a masked fusion layer returns both a matching score and a match/mismatch decision, trained on a multi-task regression, classification and contrastive objective. Shipped as three services — React front end, FastAPI back end and a separate AI inference service — covering CV storage, matching, ranking, pairwise comparison and search."
     },
     {
       "name": "RAG Chatbot for E-commerce Product Q&A",
-      "startDate": "2025",
       "url": "https://github.com/vuhuyng04/RAG_Project",
       "description": "A retrieval-augmented generation chatbot answering product queries for an online store: gte-multilingual-base embeddings, a Qdrant vector database with cosine-similarity semantic search, and Gemini 2.0 Flash for answer generation — fast, multilingual, context-aware responses."
     },
     {
       "name": "Vietnam News Crawling & Text Classification",
-      "startDate": "2025",
       "url": "https://github.com/vuhuyng04/craw_data_VietnamNews_and_classification",
       "description": "An end-to-end Vietnamese-news NLP pipeline (web scraping → EDA → model training → deployment): scraped and cleaned thousands of news articles into a structured CSV dataset, engineered TF-IDF features and trained a multi-class XGBoost classifier (evaluated with confusion matrix and accuracy / F1), and deployed the model as a Flask web app for real-time classification."
     },
     {
       "name": "Fine-tuned BERT for Vietnamese Sentiment Classification",
-      "startDate": "2024",
       "url": "https://github.com/vuhuyng04/finetune-bert-ntc-scv-sentiment",
       "description": "Fine-tuned a BERT model on the NTC-SCV dataset for sentiment analysis, with the code and training pipeline published on GitHub, and served through a Flask web app."
     }
