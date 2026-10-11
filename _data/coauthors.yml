@@ -1,7 +1,10 @@
 # Co-authors whose names should link out from the bibliography.
-# Key is the lower-cased surname as it appears in _bibliography/papers.bib;
-# `firstname` must match the given name in the entry exactly, or the link is
-# silently skipped.
-"le":
-  - firstname: ["The Anh"]
-    url: https://orcid.org/0000-0003-0740-6380
+#
+# Empty on purpose: author names on /publications/ are plain text. To link one,
+# add an entry keyed by the lower-cased surname exactly as it appears in
+# _bibliography/papers.bib, with `firstname` matching the given name exactly —
+# a mismatch is skipped silently.
+#
+#   "le":
+#     - firstname: ["The Anh"]
+#       url: https://orcid.org/0000-0003-0740-6380
