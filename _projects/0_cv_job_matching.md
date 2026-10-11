@@ -9,7 +9,7 @@ github: https://github.com/vuhuyng04/cv-job-matching
 ---
 
 My graduation capstone at **FPT University** (AIP491, Can Tho, August 2026), supervised
-by **Dr. Le The Anh**, and the work behind the paper accepted to
+by **[Dr. Le The Anh](https://orcid.org/0000-0003-0740-6380)**, and the work behind the paper accepted to
 [EAI FISAT 2026]({{ '/publications/' | relative_url }}).
 
 A recruiter pastes a job description and uploads candidate CVs; the system returns a
