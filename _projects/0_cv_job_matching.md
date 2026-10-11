@@ -12,6 +12,13 @@ My graduation capstone at **FPT University** (AIP491, Can Tho, August 2026), sup
 by **[Dr. Le The Anh](https://orcid.org/0000-0003-0740-6380)**, and the work behind the paper accepted to
 [EAI FISAT 2026]({{ '/publications/' | relative_url }}).
 
+{% include figure.liquid loading="lazy" path="assets/img/projects/fisat-acceptance.png" class="img-fluid rounded z-depth-1" zoomable=true alt="Acceptance notification from EAI FISAT 2026, dated 6 October 2026" %}
+
+<div class="caption">
+Acceptance notification, 6 October 2026. The personal registration link, the
+mailbox URL and the student email address are blacked out.
+</div>
+
 A recruiter pastes a job description and uploads candidate CVs; the system returns a
 match score, a ranking, and a side-by-side comparison, rather than the keyword overlap
 that conventional screening relies on.
